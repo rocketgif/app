@@ -1,0 +1,23 @@
+body {
+    background: radial-gradient(ellipse at center 20%, transparentize(#263645, 0.55) 0%, $background-color 67%, $background-color 100%);
+    background-color: $background-color;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: $text-color;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: #EEE;
+}
+
+#main {
+    padding-top: 100px;
+}
