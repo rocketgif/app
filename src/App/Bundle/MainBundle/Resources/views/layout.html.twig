@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Rocket Gif{% endblock %}</title>
+        <meta name="description" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="format-detection" content="telephone=no">
+        {# <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /> #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/main.js') }}" async></script>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#" class="logo">ROCKETGIF</a>
+        </div>
+        <div id="main">
+            {% block main %}{% endblock %}
+        </div>
+    </body>
+</html>

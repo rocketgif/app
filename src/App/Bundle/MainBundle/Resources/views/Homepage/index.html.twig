@@ -1,9 +1,17 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppMainBundle::layout.html.twig' %}
 
-{% block body %}
-    <ul>
-        {% for post in posts %}
-            <li>{{ post.id }}</li>
-        {% endfor %}
-    </ul>
+{% block main %}
+    {% for i in 0..4 %}
+        <article>
+            <figure>
+                <figcaption>Légende associée</figcaption>
+                <img src="http://www.gohanblog.fr/www/wp-content/uploads/2015/07/test-rocket-league-PS4.jpg" alt="" />
+            </figure>
+            <div class="actions">
+                <a href="#">Like</a>
+                <a href="#">Share on Twitter</a>
+                <a href="#">Share on Facebook</a>
+            </div>
+        </article>
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,21 @@
+article {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    background: #EEE;
+    color: $background-color;
+    box-shadow: 0 5px 15px transparentize(#000, 0.75);
+
+    figure {
+        figcaption {
+            font-size: 30px;
+            line-height: 50px;
+            padding: 10px 15px;
+            font-family: "League Spartan";
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
