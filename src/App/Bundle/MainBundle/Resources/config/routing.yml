@@ -1,3 +1,7 @@
 app_main_homepage:
     path:     /
     defaults: { _controller: AppMainBundle:Homepage:index }
+
+app_main_post_add:
+    path:     /post/add
+    defaults: { _controller: AppMainBundle:Homepage:add }
