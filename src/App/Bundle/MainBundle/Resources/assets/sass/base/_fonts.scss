@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'League Spartan';
+    src: url('#{$fonts-folder-path}/leaguespartan/leaguespartan-bold.eot');
+    src: url('#{$fonts-folder-path}/leaguespartan/leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
+         url('#{$fonts-folder-path}/leaguespartan/leaguespartan-bold.woff2') format('woff2'),
+         url('#{$fonts-folder-path}/leaguespartan/leaguespartan-bold.woff') format('woff'),
+         url('#{$fonts-folder-path}/leaguespartan/leaguespartan-bold.ttf') format('truetype'),
+         url('#{$fonts-folder-path}/leaguespartan/leaguespartan-bold.svg#league_spartanbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('#{$fonts-folder-path}/worksans/WorkSans-Regular.woff2') format('woff2'),
+         url('#{$fonts-folder-path}/worksans/WorkSans-Regular.woff') format('woff'),
+         url('#{$fonts-folder-path}/worksans/WorkSans-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('#{$fonts-folder-path}/worksans/WorkSans-SemiBold.woff2') format('woff2'),
+         url('#{$fonts-folder-path}/worksans/WorkSans-SemiBold.woff') format('woff'),
+         url('#{$fonts-folder-path}/worksans/WorkSans-SemiBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}

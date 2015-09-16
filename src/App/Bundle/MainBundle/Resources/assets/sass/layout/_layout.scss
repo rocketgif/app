@@ -4,6 +4,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: $base-font-family;
+    letter-spacing: -0.04em;
     font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
@@ -14,10 +15,44 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    padding: 0 30px;
     height: 80px;
-    background: #EEE;
+    line-height: 80px;
+    font-family: "League Spartan";
+    z-index: 50;
+
+    .logo {
+        float: left;
+        font-size: 24px;
+    }
+
+    nav {
+        float: right;
+        font-size: 18px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: inline-block;
+                list-style: none;
+
+                a {
+                    padding: 0 15px;
+                    transition: opacity 0.2s linear;
+
+                    &.active, &:hover {
+                        text-decoration: none;
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+    }
 }
 
 #main {
-    padding-top: 100px;
+    padding: 100px 20px 20px 20px;
 }

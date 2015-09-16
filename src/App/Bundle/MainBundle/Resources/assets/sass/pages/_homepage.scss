@@ -7,15 +7,61 @@ article {
     box-shadow: 0 5px 15px transparentize(#000, 0.75);
 
     figure {
+
         figcaption {
-            font-size: 30px;
-            line-height: 50px;
-            padding: 10px 15px;
+            font-size: 22px;
+            line-height: 32px;
+            padding: 15px 15px 10px 15px;
             font-family: "League Spartan";
         }
 
         img {
+            display: block;
             max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    .actions {
+        padding: 13px 15px 10px 15px;
+        font-size: 16px;
+        font-family: "League Spartan";
+
+        .likes {
+            &, a, a:visited {
+                color: #FF5C64;
+            }
+
+            a:hover {
+                text-decoration: none;
+                border-bottom: 2px solid #FF5C64;
+            }
+        }
+
+        .socials {
+            float: right;
+
+            a, a:visited {
+                margin-left: 15px;
+
+                &.tw-link {
+                    color: #55ACEE;
+
+                    &:hover {
+                        text-decoration: none;
+                        border-bottom: 2px solid #55ACEE;
+                    }
+                }
+
+                &.fb-link {
+                    color: #3B5998;
+
+                    &:hover {
+                        text-decoration: none;
+                        border-bottom: 2px solid #3B5998;
+                    }
+                }
+            }
         }
     }
 }
