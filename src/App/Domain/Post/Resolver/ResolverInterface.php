@@ -8,7 +8,7 @@ namespace App\Domain\Post\Resolver;
 interface ResolverInterface
 {
     /**
-     * Retrieve a clean URL from a user-submitted URL
+     * Retrieve a unique key from a user-submitted URL
      *
      * @param string $url
      *

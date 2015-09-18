@@ -10,7 +10,7 @@ App\Domain\Post:
         title:
             type:   string
             length: 255
-        url:
+        gfycatKey:
             type:   string
             length: 255
         baseUrl:

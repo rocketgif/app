@@ -1,11 +1,11 @@
 {% extends 'AppMainBundle::layout.html.twig' %}
 
 {% block main %}
-    {% for i in 0..4 %}
+    {% for post in posts %}
         <article>
             <figure>
-                <figcaption>Légende associée</figcaption>
-                <img data-gifffer="https://media.giphy.com/media/VlI696ImQcaA0/giphy.gif" />
+                <figcaption>{{ post.title }}</figcaption>
+                <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false></div>
             </figure>
             <div class="actions">
                 <div class="socials">

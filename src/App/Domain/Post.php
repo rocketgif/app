@@ -3,7 +3,7 @@
 namespace App\Domain;
 
 /**
- * A rocketgif post.
+ * A rocketgif post
  */
 class Post
 {
@@ -29,11 +29,11 @@ class Post
     private $createdAt;
 
     /**
-     * The url of the media
+     * The unique key of the gfycat media
      *
      * @var string
      */
-    private $url;
+    private $gfycatKey;
 
     /**
      * The URL given by the user
@@ -46,14 +46,14 @@ class Post
      * __construct
      *
      * @param string    $title
-     * @param string    $url
+     * @param string    $gfycatKey
      * @param \DateTime $createdAt
      * @param string    $baseUrl
      */
-    public function __construct($title, $url, \DateTime $createdAt, $baseUrl)
+    public function __construct($title, $gfycatKey, \DateTime $createdAt, $baseUrl)
     {
         $this->title     = $title;
-        $this->url       = $url;
+        $this->gfycatKey = $gfycatKey;
         $this->createdAt = $createdAt;
         $this->baseUrl   = $baseUrl;
     }
@@ -79,13 +79,13 @@ class Post
     }
 
     /**
-     * Get url
+     * Get gfycat key
      *
      * @return string
      */
-    public function getUrl()
+    public function getGfycatKey()
     {
-        return $this->url;
+        return $this->gfycatKey;
     }
 
     /**

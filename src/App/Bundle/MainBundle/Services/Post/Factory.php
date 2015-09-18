@@ -48,11 +48,11 @@ class Factory
     public function create(AddModel $model)
     {
         $title   = $model->title;
-        $url     = $this->resolver->resolve($model->url);
+        $key     = $this->resolver->resolve($model->url);
         $now     = $this->clock->now();
         $baseUrl = $model->url;
 
-        $post = new Post($title, $url, $now, $baseUrl);
+        $post = new Post($title, $key, $now, $baseUrl);
 
         return $post;
     }

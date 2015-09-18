@@ -32,7 +32,7 @@ class GfycatHandler implements HandlerInterface
             throw new InvalidUrlException(sprintf('The URL "%s" is not linking to valid Gfycat.', $url));
         }
 
-        return $result->gfyItem->gifUrl;
+        return $key;
     }
 
     /**
