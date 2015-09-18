@@ -14,7 +14,7 @@ var jsDir     = 'src/App/Bundle/MainBundle/Resources/assets/js/',
         sassDir + '*.scss'
     ],
     libsJS    = [
-        // 'node_modules/xxx/xxx/xxx.js',
+        'node_modules/jquery/dist/jquery.js',
         jsDir + '**/*.js'
     ],
     banner    = [

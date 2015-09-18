@@ -1,22 +1,23 @@
-$background-color: #121c26 !default;
-$base-font-family: "Roboto", "Helvetica Neue", "Helvetica" !default;
-$base-font-size:   15px !default;
-$base-line-height: $base-font-size * 1.8 !default;
-$text-color:       #F2F2F2 !default;
+$background-color: #121c26;
+$base-font-family: "Work Sans", "Helvetica Neue", "Helvetica";
+$base-font-size: 17px;
+$base-line-height: $base-font-size * 1.8;
+$text-color: #F2F2F2;
+$fonts-folder-path: "../fonts";
 
-$main-color: #F34141 !default;
+$main-color: #F34141;
 
-$headings-font-family:    "Roboto Condensed", "Helvetica Neue", "Helvetica" !default;
-$headings-font-weight:    400 !default;
-$headings-line-height:    1.4 !default;
-$headings-letter-spacing: -0.04em !default;
-$headings-text-transform: uppercase !default;
-$headings-color:          #444 !default;
-$headings-small-color:    lighten($text-color, 30%) !default;
-$headings-margin:         20px !default;
+$headings-font-family: "League Spartan", "Helvetica Neue", "Helvetica";
+$headings-font-weight: 400;
+$headings-line-height: 1.4;
+$headings-letter-spacing: -0.04em;
+$headings-text-transform: uppercase;
+$headings-color: #444;
+$headings-small-color: lighten($text-color, 30%);
+$headings-margin: 20px;
 
-$font-size-h1: 30px !default;
-$font-size-h2: 26px !default;
-$font-size-h3: 24px !default;
-$font-size-h4: 20px !default;
+$font-size-h1: 30px;
+$font-size-h2: 26px;
+$font-size-h3: 24px;
+$font-size-h4: 20px;
 

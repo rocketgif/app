@@ -1,8 +1,10 @@
 @import "base/reset";
 @import "base/variables";
+@import "base/fonts";
 @import "helpers/mixins";
 @import "helpers/shortcuts";
 @import "base/typo";
+@import "components/gifffer";
 @import "layout/layout";
 
 @import "pages/homepage";
