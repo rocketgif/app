@@ -3,5 +3,5 @@ app_main_homepage:
     defaults: { _controller: AppMainBundle:Homepage:index }
 
 app_main_post_add:
-    path:     /post/add
+    path:     /add
     defaults: { _controller: AppMainBundle:Homepage:add }

@@ -22,13 +22,6 @@ class Post
     private $title;
 
     /**
-     * The gfycat key
-     *
-     * @var string
-     */
-    private $key;
-
-    /**
      * Created at
      *
      * @var \DateTime
@@ -43,15 +36,26 @@ class Post
     private $url;
 
     /**
+     * The URL given by the user
+     *
+     * @var string
+     */
+    private $baseUrl;
+
+    /**
      * __construct
      *
+     * @param string    $title
      * @param string    $url
      * @param \DateTime $createdAt
+     * @param string    $baseUrl
      */
-    public function __construct($url, $createdAt)
+    public function __construct($title, $url, \DateTime $createdAt, $baseUrl)
     {
+        $this->title     = $title;
         $this->url       = $url;
         $this->createdAt = $createdAt;
+        $this->baseUrl   = $baseUrl;
     }
 
     /**
@@ -62,18 +66,6 @@ class Post
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @return string
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
     }
 
     /**

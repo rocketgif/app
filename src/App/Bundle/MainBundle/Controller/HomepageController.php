@@ -44,9 +44,8 @@ class HomepageController extends Controller
         $form  = $this->createAddPostForm($model);
 
         if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
-            $this->get('app_main.post.writer')->add(
-                $this->get('app_main.post.factory')->create($model)
-            );
+            $post = $this->get('app_main.post.factory')->create($model);
+            $this->get('app_main.post.writer')->add($post);
 
             $this->addFlash('success', 'flash.post.add.success');
 

@@ -10,8 +10,10 @@ App\Domain\Post:
         title:
             type:   string
             length: 255
-            nullable: true
         url:
+            type:   string
+            length: 255
+        baseUrl:
             type:   string
             length: 255
         createdAt:
