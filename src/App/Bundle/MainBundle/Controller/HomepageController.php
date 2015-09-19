@@ -19,12 +19,9 @@ class HomepageController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $page        = $request->get('page', 1);
-        $identifiers = $this->get('app_main.post.lister.date')->get(PostController::NUMBER_PER_PAGE, $page);
-        $isNextPage  = (count($identifiers) === PostController::NUMBER_PER_PAGE);
-        $posts       = $this->get('app_main.post.reader')->find($identifiers);
+        $orderedPosts = $this->get('app_main.post.paginator.date')->page(1);
 
-        $orderedPosts = $this->getOrderedPosts($identifiers, $posts);
+        $isNextPage = (count($orderedPosts) === PostController::NUMBER_PER_PAGE);
 
         return $this->render('AppMainBundle:Post:list.html.twig', [
             'posts'    => $orderedPosts,

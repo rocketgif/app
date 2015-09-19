@@ -25,17 +25,13 @@ class PostController extends Controller
      */
     public function listAction(Request $request, $page)
     {
-        $page        = $request->get('page', 1);
-        $identifiers = $this->get('app_main.post.lister.date')->get(self::NUMBER_PER_PAGE, $page);
+        $orderedPosts = $this->get('app_main.post.paginator.date')->page($page);
 
-        if (count($identifiers) === 0) {
+        $isNextPage = (count($orderedPosts) === self::NUMBER_PER_PAGE);
+
+        if (count($orderedPosts) === 0) {
             throw $this->createNotFoundException();
         }
-
-        $isNextPage = (count($identifiers) === self::NUMBER_PER_PAGE);
-        $posts      = $this->get('app_main.post.reader')->find($identifiers);
-
-        $orderedPosts = $this->getOrderedPosts($identifiers, $posts);
 
         return $this->render('AppMainBundle:Post:list.html.twig', [
             'posts'    => $orderedPosts,
@@ -82,25 +78,5 @@ class PostController extends Controller
         $form->add('submit', 'submit');
 
         return $form;
-    }
-
-    /**
-     * Construct the list of ordered posts using ordered identifiers to get the
-     * order and posts to get objects
-     *
-     * @param int[]              $identifiers
-     * @param \App\Domain\Post[] $posts
-     *
-     * @return \App\Domain\Post[]
-     */
-    private function getOrderedPosts(array $identifiers, array $posts)
-    {
-        $orderedPosts = [];
-
-        foreach ($identifiers as $identifier) {
-            $orderedPosts[] = $posts[$identifier];
-        }
-
-        return $orderedPosts;
     }
 }
