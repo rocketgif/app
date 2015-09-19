@@ -21,11 +21,9 @@ class HomepageController extends Controller
     {
         $orderedPosts = $this->get('app_main.post.paginator.date')->page(1);
 
-        $isNextPage = (count($orderedPosts) === PostController::NUMBER_PER_PAGE);
-
         return $this->render('AppMainBundle:Post:list.html.twig', [
             'posts'    => $orderedPosts,
-            'nextPage' => ($isNextPage ? 2 : null),
+            'nextPage' => 2,
         ]);
     }
 

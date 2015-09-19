@@ -7,3 +7,7 @@ app_main_post_list:
     defaults: { _controller: AppMainBundle:Post:list }
     requirements:
         page: \d+
+
+app_main_post_soon:
+    path:     /soon
+    defaults: { _controller: AppMainBundle:Post:soon }

@@ -13,8 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PostController extends Controller
 {
-    const NUMBER_PER_PAGE = 1;
-
     /**
      * Render the post list
      *
@@ -27,15 +25,13 @@ class PostController extends Controller
     {
         $orderedPosts = $this->get('app_main.post.paginator.date')->page($page);
 
-        $isNextPage = (count($orderedPosts) === self::NUMBER_PER_PAGE);
-
         if (count($orderedPosts) === 0) {
-            throw $this->createNotFoundException();
+            return $this->redirectToRoute('app_main_post_soon');
         }
 
         return $this->render('AppMainBundle:Post:list.html.twig', [
             'posts'    => $orderedPosts,
-            'nextPage' => ($isNextPage ? $page + 1 : null),
+            'nextPage' => $page + 1,
         ]);
     }
 
@@ -63,6 +59,19 @@ class PostController extends Controller
         return $this->render('AppMainBundle:Post:add.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+
+    /**
+     * Display the soon™ page
+     *
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function soonAction(Request $request)
+    {
+        return $this->render('AppMainBundle:Post:soon.html.twig');
     }
 
     /**
