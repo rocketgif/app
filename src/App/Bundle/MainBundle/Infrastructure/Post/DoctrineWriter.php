@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Bundle\MainBundle\Services\Post;
+namespace App\Bundle\MainBundle\Infrastructure\Post;
 
-use Doctrine\ORM\EntityManagerInterface;
-
-use App\Application\Contract\Post\WriterInterface;
 use App\Domain\Post;
+use App\Domain\Post\WriterInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Write, edit and delete posts using Doctrine

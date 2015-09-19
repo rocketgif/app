@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Bundle\MainBundle\Services\Post;
+namespace App\Bundle\MainBundle\Infrastructure\Post;
 
 use App\Bundle\MainBundle\Form\Model\Post\Add as AddModel;
 use App\Bundle\MainBundle\Infrastructure\Clock\Clock;

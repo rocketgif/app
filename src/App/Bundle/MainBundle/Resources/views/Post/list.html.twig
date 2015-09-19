@@ -9,4 +9,7 @@
             </figure>
         </article>
     {% endfor %}
+    {% if nextPage %}
+        <a href="{{ path('app_main_post_list', {'page': nextPage}) }}">Next page</a>
+    {% endif %}
 {% endblock %}

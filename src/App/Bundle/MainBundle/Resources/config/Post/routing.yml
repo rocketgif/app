@@ -1,0 +1,9 @@
+app_main_post_add:
+    path:     /add
+    defaults: { _controller: AppMainBundle:Post:add }
+
+app_main_post_list:
+    path:     /plays/{page}
+    defaults: { _controller: AppMainBundle:Post:list }
+    requirements:
+        page: \d+

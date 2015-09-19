@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Contract\Post;
+namespace App\Domain\Post;
 
 use App\Domain\Post;
 

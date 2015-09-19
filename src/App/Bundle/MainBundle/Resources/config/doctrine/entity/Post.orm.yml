@@ -1,8 +1,9 @@
 App\Domain\Post:
-    type:   entity
-    table:  post
+    repositoryClass:    App\Bundle\MainBundle\Entity\Post\PostRepository
+    type:               entity
+    table:              post
     id:
-        id:
+        identifier:
             type: integer
             generator:
                 strategy: AUTO

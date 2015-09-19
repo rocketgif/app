@@ -5,10 +5,6 @@ namespace App\Bundle\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use App\Application\Command\Post\AddCommand;
-use App\Bundle\MainBundle\Form\Type\Post\AddType as AddPostType;
-use App\Bundle\MainBundle\Form\Model\Post\Add as AddPostModel;
-
 /**
  * The controller handling the homepage action
  */
@@ -23,52 +19,36 @@ class HomepageController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $page  = $request->get('page', 1);
-        $posts = $this->get('app_main.post.reader')->page($page);
+        $page        = $request->get('page', 1);
+        $identifiers = $this->get('app_main.post.lister.date')->get(PostController::NUMBER_PER_PAGE, $page);
+        $isNextPage  = (count($identifiers) === PostController::NUMBER_PER_PAGE);
+        $posts       = $this->get('app_main.post.reader')->find($identifiers);
 
-        return $this->render('AppMainBundle:Homepage:index.html.twig', [
-            'posts' => $posts,
+        $orderedPosts = $this->getOrderedPosts($identifiers, $posts);
+
+        return $this->render('AppMainBundle:Post:list.html.twig', [
+            'posts'    => $orderedPosts,
+            'nextPage' => ($isNextPage ? 2 : null),
         ]);
     }
 
     /**
-     * Add a new post
+     * Construct the list of ordered posts using ordered identifiers to get the
+     * order and posts to get objects
      *
-     * @param Request $request
+     * @param int[]              $identifiers
+     * @param \App\Domain\Post[] $posts
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \App\Domain\Post[]
      */
-    public function addAction(Request $request)
+    private function getOrderedPosts(array $identifiers, array $posts)
     {
-        $model = new AddPostModel();
-        $form  = $this->createAddPostForm($model);
+        $orderedPosts = [];
 
-        if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
-            $post = $this->get('app_main.post.factory')->create($model);
-            $this->get('app_main.post.writer')->add($post);
-
-            $this->addFlash('success', 'flash.post.add.success');
-
-            return $this->redirectToRoute('app_main_post_add');
+        foreach ($identifiers as $identifier) {
+            $orderedPosts[] = $posts[$identifier];
         }
 
-        return $this->render('AppMainBundle:Homepage:add.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @param AddPostModel $model
-     *
-     * @return \Symfony\Component\Form\Form
-     */
-    private function CreateAddPostForm(AddPostModel $model)
-    {
-        $form = $this->createForm(new AddPostType(), $model, [
-            'action' => $this->generateUrl('app_main_post_add'),
-        ]);
-        $form->add('submit', 'submit');
-
-        return $form;
+        return $orderedPosts;
     }
 }

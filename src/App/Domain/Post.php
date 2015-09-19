@@ -12,7 +12,7 @@ class Post
      *
      * @var int
      */
-    private $id;
+    private $identifier;
 
     /**
      * The title
@@ -59,13 +59,13 @@ class Post
     }
 
     /**
-     * Get id
+     * Get identifier
      *
      * @return int
      */
-    public function getId()
+    public function getIdentifier()
     {
-        return $this->id;
+        return $this->identifier;
     }
 
     /**
