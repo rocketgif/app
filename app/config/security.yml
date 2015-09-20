@@ -1,0 +1,23 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm:  sha512
+            iterations: 10
+            encode_as_base64: true
+    providers:
+        add_provider:
+            memory:
+                users:
+                    admin: { password: XSMfJ4uJl437szKNsa9TiFe8mSuG0Kw9BtV8t6PmhY9G6oPca5i1LA3nUklA9yhfVk+n3uVCtgi0HtLywK/DXQ==, roles: [ROLE_ADMIN] }
+        in_memory:
+            memory: ~
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        add:
+            pattern: ^/add
+            anonymous: false
+            http_basic:
+                realm: "Rocket Gif"
+            provider: add_provider

@@ -1,0 +1,26 @@
+$background-color: #121c26;
+$base-font-family: "Work Sans", "Helvetica Neue", "Helvetica";
+$base-font-size: 17px;
+$base-line-height: $base-font-size * 1.8;
+$text-color: #F2F2F2;
+$fonts-folder-path: "../fonts";
+
+$main-color: #F34141;
+
+$headings-font-family: "League Spartan", "Helvetica Neue", "Helvetica";
+$headings-font-weight: 400;
+$headings-line-height: 1.4;
+$headings-letter-spacing: -0.04em;
+$headings-text-transform: uppercase;
+$headings-color: #F2F2F2;
+$headings-small-color: lighten($text-color, 30%);
+$headings-margin: 20px;
+
+$font-size-h1: 30px;
+$font-size-h2: 26px;
+$font-size-h3: 24px;
+$font-size-h4: 20px;
+
+$rocketleague-blue: #00A3FF;
+$rocketleague-orange: #FF7F2B;
+$rocketleague-orange-light: #FF912B;

@@ -1,0 +1,17 @@
+{% extends 'AppMainBundle::layout.html.twig' %}
+
+{% block main %}
+    {% for post in posts %}
+        <article>
+            <figure>
+                <figcaption><a href="{{ path('app_main_post_show', {'identifier': post.identifier}) }}">{{ post.title }}</a></figcaption>
+                <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false></div>
+            </figure>
+        </article>
+    {% endfor %}
+    {% if nextPage %}
+        <div class="next">
+            <a class="btn" href="{{ path('app_main_post_list', {'page': nextPage}) }}">show more</a>
+        </div>
+    {% endif %}
+{% endblock %}

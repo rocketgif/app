@@ -1,0 +1,23 @@
+.btn, a.btn {
+    border: 1px solid $rocketleague-orange-light;
+    color: $rocketleague-orange-light;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    vertical-align: baseline;
+    box-shadow: 0 5px 15px transparentize(#000, 0.75);
+    text-shadow: 0 2px 7px black;
+    display: inline-block;
+
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        outline: none;
+    }
+
+    &:hover {
+        background-color: $rocketleague-orange-light;
+        color: $background-color;
+        text-shadow: 0 0 0 black;
+    }
+}

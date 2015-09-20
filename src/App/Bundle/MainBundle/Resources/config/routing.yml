@@ -1,0 +1,7 @@
+app_main_post:
+    resource: "@AppMainBundle/Resources/config/Post/routing.yml"
+    prefix:   /
+
+app_main_homepage:
+    path:     /
+    defaults: { _controller: AppMainBundle:Homepage:index }

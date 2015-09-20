@@ -1,0 +1,29 @@
+{
+    "name": "RocketGIF",
+    "version": "0.0.1",
+    "description": "Rocket GIF",
+    "author": "Jeremy FAGIS <jeremy@fagis.fr> (http://fagis.fr)",
+    "homepage": "https://github.com/rocketgif/app",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rocketgif/app"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "jquery": "*"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.*",
+        "gulp-autoprefixer": "^2.3.*",
+        "gulp-header": "^1.2.*",
+        "gulp-load-plugins": "^0.10.*",
+        "gulp-minify-css": "^1.2.*",
+        "gulp-plumber": "^1.0.*",
+        "gulp-sass": "^2.0.*",
+        "gulp-uglify": "^1.2.*",
+        "gulp-util": "^3.0.*",
+        "minimist": "^1.1.*",
+        "gulp-if": "^1.2.*",
+        "gulp-concat": "^2.6.*"
+    }
+}

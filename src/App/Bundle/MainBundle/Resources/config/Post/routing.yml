@@ -1,0 +1,19 @@
+app_main_post_add:
+    path:     /add
+    defaults: { _controller: AppMainBundle:Post:add }
+
+app_main_post_list:
+    path:     /plays/{page}
+    defaults: { _controller: AppMainBundle:Post:list }
+    requirements:
+        page: \d+
+
+app_main_post_show:
+    path:     /p/{identifier}
+    defaults: { _controller: AppMainBundle:Post:show }
+    requirements:
+        identifier: \d+
+
+app_main_post_soon:
+    path:     /soon
+    defaults: { _controller: AppMainBundle:Post:soon }

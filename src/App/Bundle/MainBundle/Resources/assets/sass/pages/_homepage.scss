@@ -1,0 +1,95 @@
+article {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    background: #EEE;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: $background-color;
+    color: rgb(217, 217, 217);
+    box-shadow: 0 5px 15px transparentize(#000, 0.75);
+
+    figure {
+        line-height: 0;
+
+        figcaption {
+            font-size: 14px;
+            text-transform: uppercase;
+            line-height: $base-line-height;
+            text-align: left;
+            padding: 15px 15px 10px 15px;
+            font-family: "League Spartan";
+
+            a {
+                color: inherit;
+                transition: color 0.2s linear;
+
+                &:visited {
+                    color: inherit;
+                    outline: none;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    color: $rocketleague-blue;
+                }
+            }
+        }
+
+        .actions {
+            padding: 0 15px;
+            font-size: 14px;
+            font-family: "Arial";
+            line-height: $base-line-height;
+
+            .permalink {
+                &, a, a:visited {
+                    color: $rocketleague-blue;
+                }
+            }
+
+            .likes {
+                &, a, a:visited {
+                    color: #FF5C64;
+                }
+
+                a:hover {
+                    text-decoration: none;
+                    border-bottom: 2px solid #FF5C64;
+                }
+            }
+
+            .socials {
+                float: right;
+
+                a, a:visited {
+                    margin-left: 15px;
+
+                    &.tw-link {
+                        color: #55ACEE;
+
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 2px solid #55ACEE;
+                        }
+                    }
+
+                    &.fb-link {
+                        color: #3B5998;
+
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 2px solid #3B5998;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.next {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto 50px auto;
+}

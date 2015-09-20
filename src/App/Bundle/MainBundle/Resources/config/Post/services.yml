@@ -1,0 +1,29 @@
+services:
+    app_main.post.resolver:
+        class: App\Domain\Post\Resolver\BusResolver
+        arguments:
+            - [@app_main.post.resolver.handler.gfycat]
+    app_main.post.resolver.handler.gfycat:
+        class: App\Bundle\MainBundle\Infrastructure\Post\Resolver\Handler\GfycatHandler
+    app_main.post.factory:
+        class: App\Bundle\MainBundle\Infrastructure\Post\Factory
+        arguments:
+            - @app_main.clock
+            - @app_main.post.resolver
+    app_main.post.lister.date:
+        class: App\Bundle\MainBundle\Infrastructure\Post\Lister\DateLister
+        arguments:
+            - @doctrine.orm.entity_manager
+    app_main.post.reader:
+        class: App\Bundle\MainBundle\Infrastructure\Post\DoctrineReader
+        arguments:
+            - @doctrine.orm.entity_manager
+    app_main.post.writer:
+        class: App\Bundle\MainBundle\Infrastructure\Post\DoctrineWriter
+        arguments:
+            - @doctrine.orm.entity_manager
+    app_main.post.paginator.date:
+        class: App\Application\Post\Paginator\Paginator
+        arguments:
+            - @app_main.post.lister.date
+            - @app_main.post.reader

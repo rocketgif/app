@@ -1,0 +1,10 @@
+{% extends 'AppMainBundle::layout.html.twig' %}
+
+{% block main %}
+    <article>
+        <figure>
+            <figcaption>{{ post.title }}</figcaption>
+            <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false></div>
+        </figure>
+    </article>
+{% endblock %}
