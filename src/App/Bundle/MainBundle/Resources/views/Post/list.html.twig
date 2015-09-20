@@ -10,6 +10,6 @@
         </article>
     {% endfor %}
     {% if nextPage %}
-        <a href="{{ path('app_main_post_list', {'page': nextPage}) }}">Next page</a>
+        <a class="next" href="{{ path('app_main_post_list', {'page': nextPage}) }}">Show more</a>
     {% endif %}
 {% endblock %}

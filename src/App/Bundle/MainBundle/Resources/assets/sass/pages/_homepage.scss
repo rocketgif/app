@@ -60,3 +60,23 @@ article {
         }
     }
 }
+
+a.next {
+    background-color: $rocketleague-orange;
+    line-height: 300%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    display: block;
+    transition: opacity 0.2s linear;
+    font-family: "League Spartan";
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px transparentize(#000, 0.75);
+
+    &.active, &:hover {
+        text-decoration: none;
+        outline: none;
+        opacity: 0.7;
+    }
+}
