@@ -2,9 +2,9 @@
 
 namespace App\Bundle\MainBundle\Controller;
 
-use App\Application\Command\Post\AddCommand;
 use App\Bundle\MainBundle\Form\Model\Post\Add as AddPostModel;
 use App\Bundle\MainBundle\Form\Type\Post\AddType as AddPostType;
+use App\Domain\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -32,6 +32,21 @@ class PostController extends Controller
         return $this->render('AppMainBundle:Post:list.html.twig', [
             'posts'    => $orderedPosts,
             'nextPage' => $page + 1,
+        ]);
+    }
+
+    /**
+     * Render a post
+     *
+     * @param Request $request
+     * @param Post    $post
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction(Request $request, Post $post)
+    {
+        return $this->render('AppMainBundle:Post:show.html.twig', [
+            'post' => $post,
         ]);
     }
 
