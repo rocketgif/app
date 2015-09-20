@@ -1,7 +1,11 @@
 {% extends 'AppMainBundle::layout.html.twig' %}
 
 {% block main %}
-    Sorry, no more plays! Come back soon or add your own plays <a href="#">HERE</a>.
-
-    <a href="{{ path('app_main_homepage') }}">Go back to homepage</a>
+    <div class="text-center">
+        <h2>Sorry, no more plays!</h2>
+        <p>
+            Come back soon or add your own plays <a href="#">HERE</a>.<br/>
+            <a href="{{ path('app_main_homepage') }}">Go back to homepage</a>
+        </p>
+    </div>
 {% endblock %}
