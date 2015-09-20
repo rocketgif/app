@@ -28,8 +28,6 @@ WORKDIR /var/www/project
 
 # Set permissions for cache and logs (should be done in a better way)
 RUN rm -rf app/cache/* app/logs/*
-RUN chown -R www-data app/cache
-RUN chown -R www-data app/logs
 
 # Setup the symfony project
 RUN curl -sS https://getcomposer.org/installer | php
