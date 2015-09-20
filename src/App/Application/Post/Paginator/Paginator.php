@@ -10,7 +10,7 @@ use App\Domain\Post\ReaderInterface;
  */
 class Paginator
 {
-    const NUMBER_PER_PAGE = 10;
+    const NUMBER_PER_PAGE = 5;
 
     /**
      * The service used to retrieve an ordered list of post identifiers
