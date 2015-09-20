@@ -26,4 +26,20 @@ class HomepageController extends Controller
             'nextPage' => 2,
         ]);
     }
+
+    /**
+     * The action to render the piwik tracking code
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function piwikAction()
+    {
+        $siteId     = $this->container->hasParameter('piwik.site_id') ? $this->container->getParameter('piwik.site_id') : null;
+        $trackerUrl = $this->container->hasParameter('piwik.tracker_url') ? $this->container->getParameter('piwik.tracker_url') : null;
+
+        return $this->render('AppMainBundle:Homepage:piwik.html.twig', [
+            'siteId'     => $siteId,
+            'trackerUrl' => $trackerUrl,
+        ]);
+    }
 }

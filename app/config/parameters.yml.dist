@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # You can remove or set both entries to false to deactivate piwik
+    # Should be the id given by your piwik configuration
+    piwik.site_id: false
+    # Should be piwik.domain.tld
+    piwik.tracker_url: false
