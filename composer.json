@@ -18,7 +18,9 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "guzzlehttp/guzzle": "~6.1"
+        "guzzlehttp/guzzle": "~6.1",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
