@@ -1,5 +1,5 @@
 body {
-    background: radial-gradient(ellipse at center 20%, transparentize(#263645, 0.55) 0%, $background-color 67%, $background-color 100%);
+    background: radial-gradient(ellipse at center 35%, transparentize(#376188, 0.55) 0%, $background-color 67%, $background-color 100%);
     background-color: $background-color;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -14,7 +14,6 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     padding: 0 30px;
     height: 80px;
     line-height: 80px;
@@ -65,5 +64,5 @@ body {
 }
 
 #main {
-    padding: 100px 20px 20px 20px;
+    padding: 80px 20px 20px 20px;
 }

@@ -3,59 +3,83 @@ article {
     max-width: 800px;
     margin: 0 auto 50px auto;
     background: #EEE;
+    background-color: rgba(0, 0, 0, 0.4);
     color: $background-color;
+    color: rgb(217, 217, 217);
     box-shadow: 0 5px 15px transparentize(#000, 0.75);
 
     figure {
         line-height: 0;
-        text-align: center;
 
         figcaption {
-            font-size: 22px;
-            line-height: 32px;
+            font-size: 14px;
+            text-transform: uppercase;
+            line-height: $base-line-height;
             text-align: left;
             padding: 15px 15px 10px 15px;
             font-family: "League Spartan";
-        }
-    }
 
-    .actions {
-        padding: 13px 15px 10px 15px;
-        font-size: 16px;
-        font-family: "League Spartan";
+            a {
+                color: inherit;
+                transition: color 0.2s linear;
 
-        .likes {
-            &, a, a:visited {
-                color: #FF5C64;
-            }
-
-            a:hover {
-                text-decoration: none;
-                border-bottom: 2px solid #FF5C64;
-            }
-        }
-
-        .socials {
-            float: right;
-
-            a, a:visited {
-                margin-left: 15px;
-
-                &.tw-link {
-                    color: #55ACEE;
-
-                    &:hover {
-                        text-decoration: none;
-                        border-bottom: 2px solid #55ACEE;
-                    }
+                &:visited {
+                    color: inherit;
+                    outline: none;
                 }
 
-                &.fb-link {
-                    color: #3B5998;
+                &:hover {
+                    text-decoration: none;
+                    color: $rocketleague-blue;
+                }
+            }
+        }
 
-                    &:hover {
-                        text-decoration: none;
-                        border-bottom: 2px solid #3B5998;
+        .actions {
+            padding: 0 15px;
+            font-size: 14px;
+            font-family: "Arial";
+            line-height: $base-line-height;
+
+            .permalink {
+                &, a, a:visited {
+                    color: $rocketleague-blue;
+                }
+            }
+
+            .likes {
+                &, a, a:visited {
+                    color: #FF5C64;
+                }
+
+                a:hover {
+                    text-decoration: none;
+                    border-bottom: 2px solid #FF5C64;
+                }
+            }
+
+            .socials {
+                float: right;
+
+                a, a:visited {
+                    margin-left: 15px;
+
+                    &.tw-link {
+                        color: #55ACEE;
+
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 2px solid #55ACEE;
+                        }
+                    }
+
+                    &.fb-link {
+                        color: #3B5998;
+
+                        &:hover {
+                            text-decoration: none;
+                            border-bottom: 2px solid #3B5998;
+                        }
                     }
                 }
             }
@@ -63,23 +87,9 @@ article {
     }
 }
 
-a.next {
-    background-color: $rocketleague-orange;
-    height: 60px;
-    line-height: 64px;
+.next {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto 50px auto;
     text-align: center;
-    display: block;
-    transition: opacity 0.15s linear;
-    font-family: "League Spartan";
-    text-transform: uppercase;
-    box-shadow: 0 5px 15px transparentize(#000, 0.75);
-
-    &.active, &:hover, &:active, &:focus {
-        text-decoration: none;
-        outline: none;
-        opacity: 0.7;
-    }
+    margin: 0 auto 50px auto;
 }
