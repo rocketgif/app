@@ -26,24 +26,4 @@ class HomepageController extends Controller
             'nextPage' => 2,
         ]);
     }
-
-    /**
-     * Construct the list of ordered posts using ordered identifiers to get the
-     * order and posts to get objects
-     *
-     * @param int[]              $identifiers
-     * @param \App\Domain\Post[] $posts
-     *
-     * @return \App\Domain\Post[]
-     */
-    private function getOrderedPosts(array $identifiers, array $posts)
-    {
-        $orderedPosts = [];
-
-        foreach ($identifiers as $identifier) {
-            $orderedPosts[] = $posts[$identifier];
-        }
-
-        return $orderedPosts;
-    }
 }

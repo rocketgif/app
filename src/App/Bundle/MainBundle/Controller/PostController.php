@@ -76,7 +76,6 @@ class PostController extends Controller
         ]);
     }
 
-
     /**
      * Display the soon™ page
      *
