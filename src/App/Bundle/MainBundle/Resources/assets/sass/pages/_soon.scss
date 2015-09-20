@@ -1,0 +1,20 @@
+.soon {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+
+    .btn {
+        background-color: $rocketleague-orange;
+        width: auto;
+        line-height: 300%;
+        padding: 0 10px;
+        text-align: center;
+        display: inline-block;
+        transition: opacity 0.2s linear;
+        font-family: "League Spartan";
+        text-transform: uppercase;
+        box-shadow: 0 5px 15px transparentize(#000, 0.75);
+        box-sizing: border-box;
+
+    }
+}
