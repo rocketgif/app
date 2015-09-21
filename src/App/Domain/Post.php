@@ -116,5 +116,4 @@ class Post
     {
         return $this->author;
     }
-
 }
