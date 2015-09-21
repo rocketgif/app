@@ -3,13 +3,16 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
-- Author to plays
 
 ### Changed
 
 ### Fixed
 
 ### Removed
+
+## v1.0.1 - 2015-09-22
+### Added
+- Author to plays
 
 ## v1.0.0 - 2015-09-21
 ### Added
