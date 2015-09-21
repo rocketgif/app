@@ -38,6 +38,11 @@ article {
                 font-size: 80%;
                 text-transform: initial;
                 float: right;
+                padding-left: 8px;
+            }
+            &::after {
+                content: "";
+                clear: right;
             }
         }
 
