@@ -43,19 +43,28 @@ class Post
     private $baseUrl;
 
     /**
+     * The author
+     *
+     * @var string
+     */
+    private $author;
+
+    /**
      * __construct
      *
      * @param string    $title
      * @param string    $gfycatKey
      * @param \DateTime $createdAt
      * @param string    $baseUrl
+     * @param string    $author
      */
-    public function __construct($title, $gfycatKey, \DateTime $createdAt, $baseUrl)
+    public function __construct($title, $gfycatKey, \DateTime $createdAt, $baseUrl, $author)
     {
         $this->title     = $title;
         $this->gfycatKey = $gfycatKey;
         $this->createdAt = $createdAt;
         $this->baseUrl   = $baseUrl;
+        $this->author    = $author;
     }
 
     /**
@@ -97,4 +106,15 @@ class Post
     {
         return $this->createdAt;
     }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
 }

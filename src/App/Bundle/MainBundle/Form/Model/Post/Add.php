@@ -15,6 +15,13 @@ class Add
     public $title;
 
     /**
+     * The author of the post
+     *
+     * @var string
+     */
+    public $author;
+
+    /**
      * The media url
      *
      * @var string

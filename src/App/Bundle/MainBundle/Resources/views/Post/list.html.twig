@@ -4,7 +4,10 @@
     {% for post in posts %}
         <article>
             <figure>
-                <figcaption><a href="{{ path('app_main_post_show', {'identifier': post.identifier}) }}">{{ post.title }}</a></figcaption>
+                <figcaption>
+                    <a href="{{ path('app_main_post_show', {'identifier': post.identifier}) }}">{{ post.title }}</a>
+                    {% if post.author is defined %} – <div class="author">{{ post.author }}</div>{% endif %}
+                </figcaption>
                 <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false></div>
             </figure>
         </article>

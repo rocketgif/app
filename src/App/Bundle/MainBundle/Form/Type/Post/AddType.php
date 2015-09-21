@@ -16,8 +16,11 @@ class AddType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title');
-        $builder->add('url');
+        $builder
+            ->add('title')
+            ->add('author')
+            ->add('url')
+        ;
     }
 
     /**
