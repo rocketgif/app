@@ -18,7 +18,7 @@ class Version20150920220909 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE post (identifier INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL, gfycat_key VARCHAR(255) NOT NULL, base_url VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, author VARCHAR(255) NOT NULL, PRIMARY KEY(identifier)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE post (identifier INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL, gfycat_key VARCHAR(255) NOT NULL, base_url VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(identifier)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
     }
 
     /**
