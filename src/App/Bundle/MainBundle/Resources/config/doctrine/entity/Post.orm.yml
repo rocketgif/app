@@ -17,5 +17,9 @@ App\Domain\Post:
         baseUrl:
             type:   string
             length: 255
+        author:
+            type:       string
+            length:     255
+            nullable:   true
         createdAt:
             type: datetime
