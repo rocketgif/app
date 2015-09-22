@@ -3,8 +3,13 @@
 {% block main %}
     <article>
         <figure>
-            <figcaption>{{ post.title }}</figcaption>
-            <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false></div>
+            <figcaption>
+                {{ post.title }}
+                {% if post.author %}
+                    <div class="author">by {{ post.author }}</div>
+                {% endif %}
+            </figcaption>
+            <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false data-expand=true></div>
         </figure>
     </article>
 {% endblock %}
