@@ -8,7 +8,7 @@
                     <a href="{{ path('app_main_post_show', {'identifier': post.identifier}) }}">{{ post.title }}</a>
                     {% if post.author %}<div class="author">by {{ post.author }}</div>{% endif %}
                 </figcaption>
-                <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false></div>
+                <div class="gfyitem" data-id="{{ post.gfycatKey }}" data-autoplay=false data-expand=true></div>
             </figure>
         </article>
     {% endfor %}
