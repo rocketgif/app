@@ -3,10 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- Author display on the show page
+- Nice favicon
 
 ### Changed
 
 ### Fixed
+- Make the animation takes the full container width
 
 ### Removed
 
