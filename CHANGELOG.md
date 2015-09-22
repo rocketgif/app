@@ -10,6 +10,14 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+## v1.0.2 - 2015-09-22
+### Added
+- Author display on the show page
+- Nice favicon
+
+### Fixed
+- Make the animation takes the full container width
+
 ## v1.0.1 - 2015-09-22
 ### Added
 - Author to plays
