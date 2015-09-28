@@ -5,7 +5,7 @@ security:
             iterations: 10
             encode_as_base64: true
     providers:
-        add_provider:
+        admin_provider:
             memory:
                 users:
                     admin: { password: XSMfJ4uJl437szKNsa9TiFe8mSuG0Kw9BtV8t6PmhY9G6oPca5i1LA3nUklA9yhfVk+n3uVCtgi0HtLywK/DXQ==, roles: [ROLE_ADMIN] }
@@ -15,9 +15,9 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        add:
-            pattern: ^/add
+        admin:
+            pattern: ^/admin
             anonymous: false
             http_basic:
                 realm: "Rocket Gif"
-            provider: add_provider
+            provider: admin_provider
