@@ -73,7 +73,7 @@ doctrine:
         mappings:
             entity:
                 type: yml
-                prefix: App\Domain
+                prefix: App\Bundle\MainBundle\Entity
                 dir: %kernel.root_dir%/../src/App/Bundle/MainBundle/Resources/config/doctrine/entity
                 alias: Entity
                 is_bundle: false
