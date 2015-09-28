@@ -1,5 +1,5 @@
 app_main_post_add:
-    path:     /add
+    path:     /admin/post/add
     defaults: { _controller: AppMainBundle:Post:add }
 
 app_main_post_list:
