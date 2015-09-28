@@ -1,0 +1,17 @@
+{% extends 'AppMainBundle::layout.html.twig' %}
+
+{% block main %}
+    {% for submission in submissions %}
+        <article>
+            <figure>
+                <figcaption>
+                    {{ submission.title }}
+                    {% if submission.author %}
+                        <div class="author">by {{ submission.author }}</div>
+                    {% endif %}
+                </figcaption>
+                <div class="gfyitem" data-id="{{ submission.gfycatKey }}" data-autoplay=false data-expand=true></div>
+            </figure>
+        </article>
+    {% endfor %}
+{% endblock %}

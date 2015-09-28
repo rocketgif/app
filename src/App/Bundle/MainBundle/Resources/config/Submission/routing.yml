@@ -1,0 +1,7 @@
+app_main_submission_add:
+    path:     /submit
+    defaults: { _controller: AppMainBundle:Submission:add }
+
+app_main_submission_list:
+    path:     /admin/submission/list
+    defaults: { _controller: AppMainBundle:Submission:list }

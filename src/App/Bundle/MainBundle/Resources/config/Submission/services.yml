@@ -1,0 +1,18 @@
+services:
+    app_main.sumission.entity_converter:
+        class: App\Bundle\MainBundle\Infrastructure\Submission\EntityConverter
+    app_main.submission.factory:
+        class: App\Bundle\MainBundle\Infrastructure\Submission\Factory
+        arguments:
+            - @app_main.clock
+            - @app_main.post.resolver
+    app_main.submission.reader:
+        class: App\Bundle\MainBundle\Infrastructure\Submission\DoctrineReader
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @app_main.sumission.entity_converter
+    app_main.submission.writer:
+        class: App\Bundle\MainBundle\Infrastructure\Submission\DoctrineWriter
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @app_main.sumission.entity_converter

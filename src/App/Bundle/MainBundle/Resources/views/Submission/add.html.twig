@@ -1,0 +1,12 @@
+{% extends 'AppMainBundle::layout.html.twig' %}
+
+{% block main %}
+    <div class="container">
+        <h2>Add your own plays!</h2>
+        {{ form_start(form) }}
+            {{ form_row(form.title) }}
+            {{ form_row(form.author) }}
+            {{ form_row(form.url) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
