@@ -44,7 +44,8 @@ class DoctrineReader implements ReaderInterface
         $queryBuilder = $this->entityManager->createQueryBuilder();
         $queryBuilder
             ->select('s')
-            ->from('AppMainBundle:Submission', 's');
+            ->from('AppMainBundle:Submission', 's')
+        ;
 
         $entities    = $queryBuilder->getQuery()->execute();
         $submissions = [];

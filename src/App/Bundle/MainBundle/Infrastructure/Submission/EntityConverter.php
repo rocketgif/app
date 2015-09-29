@@ -3,7 +3,7 @@
 namespace App\Bundle\MainBundle\Infrastructure\Submission;
 
 use App\Bundle\MainBundle\Entity\Submission as SubmissionEntity;
-use App\Domain\Submission;
+use App\Domain\Submission\Submission;
 
 /**
  * Convert submissions from/to entities

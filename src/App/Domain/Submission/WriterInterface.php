@@ -2,8 +2,6 @@
 
 namespace App\Domain\Submission;
 
-use App\Domain\Submission;
-
 /**
  * The service to perform write, edit and delete operations about submissions on
  * the database

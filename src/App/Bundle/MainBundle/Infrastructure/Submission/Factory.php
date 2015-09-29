@@ -5,7 +5,7 @@ namespace App\Bundle\MainBundle\Infrastructure\Submission;
 use App\Bundle\MainBundle\Form\Model\Submission\Add as AddModel;
 use App\Bundle\MainBundle\Infrastructure\Clock\Clock;
 use App\Domain\Post\Resolver\ResolverInterface;
-use App\Domain\Submission;
+use App\Domain\Submission\Submission;
 
 /**
  * Create a new Submission

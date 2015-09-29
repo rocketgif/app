@@ -11,7 +11,7 @@ interface ReaderInterface
      * Retrieve an array of sumissions having the given identifiers, indexed by
      * identifier
      *
-     * @return \App\Domain\Submission[]
+     * @return Submission[]
      */
     public function findAll();
 }
