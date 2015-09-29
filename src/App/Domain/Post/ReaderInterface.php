@@ -13,7 +13,7 @@ interface ReaderInterface
      *
      * @param int[]
      *
-     * @return \App\Domain\Post[]
+     * @return Post[]
      */
     public function find(array $identifiers);
 }

@@ -2,7 +2,8 @@
 
 namespace App\Bundle\MainBundle\Infrastructure\Post;
 
-use App\Domain\Post;
+use App\Bundle\MainBundle\Entity\Post\Post as PostEntity;
+use App\Domain\Post\Post;
 use App\Domain\Post\WriterInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -19,13 +20,22 @@ class DoctrineWriter implements WriterInterface
     private $entityManager;
 
     /**
+     * The service used to convert posts from/to entities
+     *
+     * @var EntityConverter
+     */
+    private $converter;
+
+    /**
      * __construct
      *
      * @param EntityManagerInterface $entityManager
+     * @param EntityConverter        $converter
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, EntityConverter $converter)
     {
         $this->entityManager = $entityManager;
+        $this->converter     = $converter;
     }
 
     /**
@@ -33,7 +43,42 @@ class DoctrineWriter implements WriterInterface
      */
     public function add(Post $post)
     {
-        $this->entityManager->persist($post);
-        $this->entityManager->flush($post);
+        $entity = $this->find($post->getIdentifier());
+
+        $this->converter->computeTo($post, $entity);
+
+        $this->getRepository()->save($entity);
+    }
+
+    /**
+     * Find a post with the given identifier or create a new one if none is
+     * found
+     *
+     * @param int|null $identifier
+     *
+     * @return PostEntity
+     */
+    private function find($identifier = null)
+    {
+        $entity = null;
+
+        if ($identifier !== null) {
+            $entity = $this->getRepository()->findByIdentifier($identifier);
+        }
+        if ($entity === null) {
+            $entity = new PostEntity();
+        }
+
+        return $entity;
+    }
+
+    /**
+     * Retrieve the post entity repository
+     *
+     * @return \App\Bundle\MainBundle\Entity\Post\PostRepository
+     */
+    private function getRepository()
+    {
+        return $this->entityManager->getRepository('AppMainBundle:Post\Post');
     }
 }

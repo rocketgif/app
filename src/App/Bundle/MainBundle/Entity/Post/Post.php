@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Bundle\MainBundle\Entity;
+namespace App\Bundle\MainBundle\Entity\Post;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * A post submission
+ * A rocketgif post
  *
- * @ORM\Table(name="submission")
- * @ORM\Entity(repositoryClass="App\Bundle\MainBundle\Entity\SubmissionRepository")
+ * @ORM\Table(name="post")
+ * @ORM\Entity(repositoryClass="App\Bundle\MainBundle\Entity\Post\PostRepository")
  */
-class Submission
+class Post
 {
     /**
-     * The id
+     * The identifier
      *
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="identifier", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $identifier;
 
     /**
      * The title
@@ -62,44 +62,20 @@ class Submission
     /**
      * The author
      *
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="author", type="string", nullable=true)
      */
     private $author;
 
     /**
-     * Set id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get id
+     * Get identifier
      *
      * @return int
      */
-    public function getId()
+    public function getIdentifier()
     {
-        return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
+        return $this->identifier;
     }
 
     /**
@@ -113,13 +89,15 @@ class Submission
     }
 
     /**
-     * Set gfycat key
+     * Set title
+     *
+     * @param string $title
      *
      * @return self
      */
-    public function setGfycatKey($gfycatKey)
+    public function setTitle($title)
     {
-        $this->gfycatKey = $gfycatKey;
+        $this->title = $title;
 
         return $this;
     }
@@ -135,13 +113,15 @@ class Submission
     }
 
     /**
-     * Set createdAt
+     * Set gfycat key
+     *
+     * @param string $gfycatKey
      *
      * @return self
      */
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setGfycatKey($gfycatKey)
     {
-        $this->createdAt = $createdAt;
+        $this->gfycatKey = $gfycatKey;
 
         return $this;
     }
@@ -157,13 +137,15 @@ class Submission
     }
 
     /**
-     * Set baseUrl
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
      *
      * @return self
      */
-    public function setBaseUrl($baseUrl)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->baseUrl = $baseUrl;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -179,13 +161,15 @@ class Submission
     }
 
     /**
-     * Set author
+     * Set baseUrl
+     *
+     * @param string $baseUrl
      *
      * @return self
      */
-    public function setAuthor($author)
+    public function setBaseUrl($baseUrl)
     {
-        $this->author = $author;
+        $this->baseUrl = $baseUrl;
 
         return $this;
     }
@@ -193,10 +177,24 @@ class Submission
     /**
      * Get author
      *
-     * @return string
+     * @return string|null
      */
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string|null $author
+     *
+     * @return self
+     */
+    public function setAuthor($author = null)
+    {
+        $this->author = $author;
+
+        return $this;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain;
+namespace App\Domain\Post;
 
 /**
  * A rocketgif post
@@ -45,20 +45,20 @@ class Post
     /**
      * The author
      *
-     * @var string
+     * @var string|null
      */
     private $author;
 
     /**
      * __construct
      *
-     * @param string    $title
-     * @param string    $gfycatKey
-     * @param \DateTime $createdAt
-     * @param string    $baseUrl
-     * @param string    $author
+     * @param string      $title
+     * @param string      $gfycatKey
+     * @param \DateTime   $createdAt
+     * @param string      $baseUrl
+     * @param string|null $author
      */
-    public function __construct($title, $gfycatKey, \DateTime $createdAt, $baseUrl, $author)
+    public function __construct($title, $gfycatKey, \DateTime $createdAt, $baseUrl, $author = null)
     {
         $this->title     = $title;
         $this->gfycatKey = $gfycatKey;
@@ -98,6 +98,16 @@ class Post
     }
 
     /**
+     * Get baseUrl
+     *
+     * @return string
+     */
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
+    }
+
+    /**
      * Get createdAt
      *
      * @return \DateTime
@@ -110,7 +120,7 @@ class Post
     /**
      * Get author
      *
-     * @return string
+     * @return string|null
      */
     public function getAuthor()
     {

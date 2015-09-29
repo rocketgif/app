@@ -4,7 +4,7 @@ namespace App\Bundle\MainBundle\Infrastructure\Post;
 
 use App\Bundle\MainBundle\Form\Model\Post\Add as AddModel;
 use App\Bundle\MainBundle\Infrastructure\Clock\Clock;
-use App\Domain\Post;
+use App\Domain\Post\Post;
 use App\Domain\Post\Resolver\ResolverInterface;
 
 /**
