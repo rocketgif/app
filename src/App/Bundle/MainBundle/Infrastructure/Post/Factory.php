@@ -58,24 +58,4 @@ class Factory
 
         return $post;
     }
-
-    /**
-     * Create a new post from a given submission
-     *
-     * @param Submission $submission
-     *
-     * @return Post
-     */
-    public function createFromSubmission(Submission $submission)
-    {
-        $title   = $submission->getTitle();
-        $author  = $submission->getAuthor();
-        $key     = $this->resolver->resolve($submission->getBaseUrl());
-        $now     = $this->clock->now();
-        $baseUrl = $submission->getBaseUrl();
-
-        $post = new Post($title, $key, $now, $baseUrl, $author);
-
-        return $post;
-    }
 }
