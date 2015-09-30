@@ -66,8 +66,10 @@ class SubmissionController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function validateAction(Request $request, Submission $submission)
+    public function validateAction(Request $request, $identifier)
     {
+        $submission = $this->get('app_main.submission.reader')->find($identifier);
+
         $this->get('app_main.submission.validator')->validate($submission);
 
         $this->addFlash('success', 'flash.submission.validate.success');
@@ -85,8 +87,10 @@ class SubmissionController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function refuseAction(Request $request, Submission $submission)
+    public function refuseAction(Request $request, $identifier)
     {
+        $submission = $this->get('app_main.submission.reader')->find($identifier);
+
         $this->get('app_main.submission.validator')->refuse($submission);
 
         $this->addFlash('success', 'flash.submission.refuse.success');

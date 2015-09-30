@@ -14,4 +14,13 @@ interface ReaderInterface
      * @return Submission[]
      */
     public function findAll();
+
+    /**
+     * Retrieve a submission for a given identifier
+     *
+     * @param int $identifier
+     *
+     * @return Submission
+     */
+    public function find($identifier);
 }

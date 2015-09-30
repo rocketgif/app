@@ -56,4 +56,20 @@ class DoctrineReader implements ReaderInterface
 
         return $submissions;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function find($identifier)
+    {
+        $queryBuilder = $this->entityManager->createQueryBuilder();
+        $queryBuilder
+            ->select('s')
+            ->from('AppMainBundle:Submission', 's')
+            ->where('s.identifier = :identifier')
+            ->setParameter('identifier', $identifier)
+        ;
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 }
