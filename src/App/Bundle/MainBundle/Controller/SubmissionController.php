@@ -68,8 +68,20 @@ class SubmissionController extends Controller
      */
     public function validateAction(Request $request, $identifier)
     {
-        $entity     = $this->get('app_main.submission.reader')->find($identifier);
-        $submission = $this->get('app_main.submission.entity_converter')->from($entity);
+        $entity = $this->get('app_main.submission.reader')->find($identifier);
+
+        if (!$entity) {
+            throw $this->createNotFoundException(
+                sprintf(
+                    'Cannot find the submission with identifier "%s"',
+                    $identifier
+                )
+            );
+        }
+
+        $submission = $this->get('app_main.submission.entity_converter')
+            ->from($entity)
+        ;
 
         $this->get('app_main.submission.validator')->validate($submission);
 
@@ -90,8 +102,19 @@ class SubmissionController extends Controller
      */
     public function refuseAction(Request $request, $identifier)
     {
-        $entity     = $this->get('app_main.submission.reader')->find($identifier);
-        $submission = $this->get('app_main.submission.entity_converter')->from($entity);
+        $entity = $this->get('app_main.submission.reader')->find($identifier);
+
+        if (!$entity) {
+            throw $this->createNotFoundException(
+                sprintf(
+                    'Cannot find the submission with identifier "%s"',
+                    $identifier
+                )
+            );
+        }
+        $submission = $this->get('app_main.submission.entity_converter')
+            ->from($entity)
+        ;
 
         $this->get('app_main.submission.validator')->refuse($submission);
 
