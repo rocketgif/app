@@ -3,14 +3,15 @@
 namespace App\Bundle\MainBundle\Infrastructure\Submission;
 
 use App\Bundle\MainBundle\Infrastructure\Post\Factory as PostFactory;
-use App\Domain\Submission\Submission;
-use App\Domain\Submission\WriterInterface as SubmissionWriterInterface;
 use App\Domain\Post\WriterInterface as PostWriterInterface;
+use App\Domain\Submission\Submission;
+use App\Domain\Submission\Validator\ValidatorInterface;
+use App\Domain\Submission\WriterInterface as SubmissionWriterInterface;
 
 /**
  * The submission validator
  */
-class Validator
+class Validator implements ValidatorInterface
 {
     /**
      * The post factory
@@ -61,9 +62,7 @@ class Validator
     }
 
     /**
-     * Validate the given submission and create a post from it
-     *
-     * @param App\Bundle\MainBundle\Entity\Submission $submission
+     * {@inheritDoc}
      */
     function validate(Submission $submission)
     {
@@ -74,9 +73,7 @@ class Validator
     }
 
     /**
-     * Refuse the given submission and delete it
-     *
-     * @param App\Bundle\MainBundle\Entity\Submission $submission
+     * {@inheritDoc}
      */
     function refuse(Submission $submission)
     {
