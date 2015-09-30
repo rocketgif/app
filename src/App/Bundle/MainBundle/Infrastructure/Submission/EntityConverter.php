@@ -26,7 +26,7 @@ class EntityConverter
             $entity->getBaseUrl(),
             $entity->getAuthor()
         );
-        $submission->setIdentifier($entity->getId());
+        $submission->setIdentifier($entity->getIdentifier());
 
         return $submission;
     }

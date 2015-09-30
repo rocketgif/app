@@ -24,6 +24,17 @@ class SubmissionRepository extends EntityRepository
     }
 
     /**
+     * Delete the given entity in database
+     *
+     * @param Submission $submission
+     */
+    public function delete(Submission $submission)
+    {
+        $this->getEntityManager()->remove($submission);
+        $this->getEntityManager()->flush($submission);
+    }
+
+    /**
      * Find the submission having the given identifier
      *
      * @return Submission|null
@@ -32,7 +43,7 @@ class SubmissionRepository extends EntityRepository
     {
         $builder = $this->createQueryBuilder('submission');
         $builder
-            ->where('submission.id = :identifier')
+            ->where('submission.identifier = :identifier')
             ->setParameter('identifier', $identifier)
         ;
 

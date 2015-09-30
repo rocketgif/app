@@ -51,6 +51,18 @@ class DoctrineWriter implements WriterInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function delete(Submission $submission)
+    {
+        $entity = $this->find($submission->getIdentifier());
+
+        $this->converter->computeTo($submission, $entity);
+
+        $this->getRepository()->delete($entity);
+    }
+
+    /**
      * Find a submission with the given identifier or create a new one if none
      * is found
      *

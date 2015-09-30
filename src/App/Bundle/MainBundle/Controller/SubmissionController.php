@@ -4,7 +4,8 @@ namespace App\Bundle\MainBundle\Controller;
 
 use App\Bundle\MainBundle\Form\Model\Submission\Add as AddSubmissionModel;
 use App\Bundle\MainBundle\Form\Type\Submission\AddType as AddSubmissionType;
-use App\Domain\Submission;
+use App\Bundle\MainBundle\Entity\Submission;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -53,6 +54,44 @@ class SubmissionController extends Controller
         return $this->render('AppMainBundle:Submission:list.html.twig', [
             'submissions' => $submissions,
         ]);
+    }
+
+    /**
+     * Validate the given submission
+     *
+     * @param Request    $request
+     * @param Submission $submission
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function validateAction(Request $request, Submission $submission)
+    {
+        $this->get('app_main.submission.validator')->validate($submission);
+
+        $this->addFlash('success', 'flash.submission.validate.success');
+
+        return $this->redirectToRoute('app_main_submission_list');
+    }
+
+    /**
+     * Refuse the given submission
+     *
+     * @param Request    $request
+     * @param Submission $submission
+     *
+     * @Security("is_granted('ROLE_ADMIN')")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function refuseAction(Request $request, Submission $submission)
+    {
+        $this->get('app_main.submission.validator')->refuse($submission);
+
+        $this->addFlash('success', 'flash.submission.refuse.success');
+
+        return $this->redirectToRoute('app_main_submission_list');
     }
 
     /**

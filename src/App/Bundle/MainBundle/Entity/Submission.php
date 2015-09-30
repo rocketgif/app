@@ -13,15 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Submission
 {
     /**
-     * The id
+     * The identifier
      *
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="identifier", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $identifier;
 
     /**
      * The title
@@ -69,25 +69,25 @@ class Submission
     private $author;
 
     /**
-     * Set id
+     * Set identifier
      *
      * @return self
      */
-    public function setId($id)
+    public function setIdentifier($identifier)
     {
-        $this->id = $id;
+        $this->identifier = $identifier;
 
         return $this;
     }
 
     /**
-     * Get id
+     * Get identifier
      *
      * @return int
      */
-    public function getId()
+    public function getIdentifier()
     {
-        return $this->id;
+        return $this->identifier;
     }
 
     /**

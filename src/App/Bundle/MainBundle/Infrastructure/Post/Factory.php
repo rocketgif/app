@@ -6,6 +6,7 @@ use App\Bundle\MainBundle\Form\Model\Post\Add as AddModel;
 use App\Bundle\MainBundle\Infrastructure\Clock\Clock;
 use App\Domain\Post\Post;
 use App\Domain\Post\Resolver\ResolverInterface;
+use App\Domain\Submission\Submission;
 
 /**
  * Create a new Post
@@ -52,6 +53,26 @@ class Factory
         $key     = $this->resolver->resolve($model->url);
         $now     = $this->clock->now();
         $baseUrl = $model->url;
+
+        $post = new Post($title, $key, $now, $baseUrl, $author);
+
+        return $post;
+    }
+
+    /**
+     * Create a new post from a given submission
+     *
+     * @param Submission $submission
+     *
+     * @return Post
+     */
+    public function createFromSubmission(Submission $submission)
+    {
+        $title   = $submission->getTitle();
+        $author  = $submission->getAuthor();
+        $key     = $this->resolver->resolve($submission->getBaseUrl());
+        $now     = $this->clock->now();
+        $baseUrl = $submission->getBaseUrl();
 
         $post = new Post($title, $key, $now, $baseUrl, $author);
 

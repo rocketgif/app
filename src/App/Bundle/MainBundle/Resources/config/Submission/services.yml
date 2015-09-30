@@ -16,3 +16,10 @@ services:
         arguments:
             - @doctrine.orm.entity_manager
             - @app_main.submission.entity_converter
+    app_main.submission.validator:
+        class: App\Bundle\MainBundle\Infrastructure\Submission\Validator
+        arguments:
+            - @app_main.post.factory
+            - @app_main.post.writer
+            - @app_main.submission.entity_converter
+            - @app_main.submission.writer
