@@ -59,8 +59,8 @@ class SubmissionController extends Controller
     /**
      * Validate the given submission
      *
-     * @param Request    $request
-     * @param Submission $submission
+     * @param Request $request
+     * @param int     $identifier
      *
      * @Security("is_granted('ROLE_ADMIN')")
      *
@@ -68,7 +68,8 @@ class SubmissionController extends Controller
      */
     public function validateAction(Request $request, $identifier)
     {
-        $submission = $this->get('app_main.submission.reader')->find($identifier);
+        $entity     = $this->get('app_main.submission.reader')->find($identifier);
+        $submission = $this->get('app_main.submission.entity_converter')->from($entity);
 
         $this->get('app_main.submission.validator')->validate($submission);
 
@@ -80,8 +81,8 @@ class SubmissionController extends Controller
     /**
      * Refuse the given submission
      *
-     * @param Request    $request
-     * @param Submission $submission
+     * @param Request $request
+     * @param int     $identifier
      *
      * @Security("is_granted('ROLE_ADMIN')")
      *
@@ -89,7 +90,8 @@ class SubmissionController extends Controller
      */
     public function refuseAction(Request $request, $identifier)
     {
-        $submission = $this->get('app_main.submission.reader')->find($identifier);
+        $entity     = $this->get('app_main.submission.reader')->find($identifier);
+        $submission = $this->get('app_main.submission.entity_converter')->from($entity);
 
         $this->get('app_main.submission.validator')->refuse($submission);
 

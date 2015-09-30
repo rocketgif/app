@@ -3,7 +3,7 @@
 namespace App\Bundle\MainBundle\Infrastructure\Submission;
 
 use App\Bundle\MainBundle\Infrastructure\Post\Factory as PostFactory;
-use App\Bundle\MainBundle\Entity\Submission;
+use App\Domain\Submission\Submission;
 use App\Domain\Submission\WriterInterface as SubmissionWriterInterface;
 use App\Domain\Post\WriterInterface as PostWriterInterface;
 
@@ -65,10 +65,9 @@ class Validator
      *
      * @param App\Bundle\MainBundle\Entity\Submission $submission
      */
-    function validate(Submission $entity)
+    function validate(Submission $submission)
     {
-        $submission = $this->submissionConverter->from($entity);
-        $post       = $this->postFactory->createFromSubmission($submission);
+        $post = $this->postFactory->createFromSubmission($submission);
 
         $this->postWriter->add($post);
         $this->submissionWriter->delete($submission);
@@ -79,9 +78,8 @@ class Validator
      *
      * @param App\Bundle\MainBundle\Entity\Submission $submission
      */
-    function refuse(Submission $entity)
+    function refuse(Submission $submission)
     {
-        $submission = $this->submissionConverter->from($entity);
         $this->submissionWriter->delete($submission);
     }
 }
