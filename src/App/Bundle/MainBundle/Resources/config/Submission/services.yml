@@ -17,7 +17,7 @@ services:
             - @doctrine.orm.entity_manager
             - @app_main.submission.entity_converter
     app_main.submission.validator:
-        class: App\Bundle\MainBundle\Infrastructure\Submission\Validator
+        class: App\Domain\Submission\Validator\Validator
         arguments:
             - @app_main.post.writer
             - @app_main.submission.writer

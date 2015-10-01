@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Bundle\MainBundle\Infrastructure\Submission;
+namespace App\Domain\Submission\Validator;
 
-use App\Bundle\MainBundle\Infrastructure\Post\Factory as PostFactory;
+use App\Domain\Clock\ClockInterface;
+use App\Domain\Post\Post;
+use App\Domain\Post\Resolver\ResolverInterface;
 use App\Domain\Post\WriterInterface as PostWriterInterface;
 use App\Domain\Submission\Submission;
-use App\Domain\Submission\Validator\ValidatorInterface;
 use App\Domain\Submission\WriterInterface as SubmissionWriterInterface;
 
 /**
