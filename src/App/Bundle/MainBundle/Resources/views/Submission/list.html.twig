@@ -11,9 +11,9 @@
                     {% endif %}
                 </figcaption>
                 <div class="gfyitem" data-id="{{ submission.gfycatKey }}" data-autoplay=false data-expand=true></div>
-                <div>
-                    <a href="{{ path('app_main_submission_validate', {'identifier': submission.identifier}) }}">Accept</a>
-                    <a href="{{ path('app_main_submission_refuse', {'identifier': submission.identifier}) }}">Refuse</a>
+                <div class="validation">
+                    <a class="btn btn-blue" href="{{ path('app_main_submission_refuse', {'identifier': submission.identifier}) }}">Refuse</a>
+                    <a class="btn" href="{{ path('app_main_submission_validate', {'identifier': submission.identifier}) }}">Accept</a>
                 </div>
             </figure>
         </article>
