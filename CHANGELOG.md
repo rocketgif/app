@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 ### Changed
+- Set proper home, show and soon pages titles
 
 ### Fixed
 
