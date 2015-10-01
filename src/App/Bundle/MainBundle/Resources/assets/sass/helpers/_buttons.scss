@@ -9,6 +9,7 @@
     box-shadow: 0 5px 15px transparentize(#000, 0.75);
     text-shadow: 0 2px 7px transparentize(#000, 0.25);
     display: inline-block;
+    background-color: transparent;
 
     &:hover, &:active, &:focus {
         text-decoration: none;

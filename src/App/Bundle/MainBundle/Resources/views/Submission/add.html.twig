@@ -2,11 +2,17 @@
 
 {% block main %}
     <div class="container">
-        <h2>Add your own plays!</h2>
-        {{ form_start(form) }}
-            {{ form_row(form.title) }}
-            {{ form_row(form.author) }}
-            {{ form_row(form.url) }}
-        {{ form_end(form) }}
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="submit">
+                    <h2>Add your own plays!</h2>
+                    {{ form_start(form) }}
+                        {{ form_row(form.title) }}
+                        {{ form_row(form.author) }}
+                        {{ form_row(form.url) }}
+                    {{ form_end(form) }}
+                </submit>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -11,3 +11,4 @@
 /web/bundles/
 /web/assets/
 /node_modules/
+.DS_Store

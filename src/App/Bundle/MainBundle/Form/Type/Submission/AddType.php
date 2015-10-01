@@ -20,7 +20,10 @@ class AddType extends AbstractType
             ->add('title')
             ->add('author')
             ->add('url', 'text', [
-                'label' => 'The gfycat url',
+                'label' => 'The gfycat URL',
+                'attr' => [
+                    'placeholder' => 'http://gfycat.com/UnsteadyLastingAmericanwigeon',
+                ],
             ])
         ;
     }

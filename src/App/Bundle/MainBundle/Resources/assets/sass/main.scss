@@ -1,3 +1,4 @@
+@import "base/bootstrap-grid";
 @import "base/reset";
 @import "base/variables";
 @import "base/fonts";
@@ -7,6 +8,8 @@
 @import "layout/layout";
 @import "helpers/responsive";
 @import "helpers/buttons";
+@import "helpers/forms";
 
 @import "pages/homepage";
 @import "pages/soon";
+@import "pages/submit";
