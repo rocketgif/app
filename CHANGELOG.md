@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## v1.1.0 - 2015-10-02
+### Added
 - Submission of new plays
 - Ability for admins to validate and reject submissions
 - Link to the submit page in the main menu
@@ -10,10 +19,6 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Set proper home, show and soon pages titles
-
-### Fixed
-
-### Removed
 
 ## v1.0.2 - 2015-09-22
 ### Added
