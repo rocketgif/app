@@ -14,7 +14,7 @@ class Add
      *
      * @var string
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Please enter a title.")
      */
     public $title;
 
@@ -30,10 +30,10 @@ class Add
      *
      * @var string
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Please paste your gfycat link here.")
      * @Assert\Regex(
      *     pattern="/^((http(s)?)?:\/\/)?(www\.)?gfycat\.com\/(?P<key>\w+)$/",
-     *     message="Invalid gfycat URL format"
+     *     message="Please paste a valid gfycat link."
      * )
      */
     public $url;

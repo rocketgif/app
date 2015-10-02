@@ -1,9 +1,8 @@
 .form-group {
     margin-top: 24px;
 
-    label {
+    .label {
         text-align: left;
-        display: block;
         font-family: $headings-font-family;
         font-size: $base-font-size * 0.8;
         color: transparentize($text-color, 0.5);
@@ -41,5 +40,15 @@
 
     button[type=submit] {
         margin-top: 20px;
+    }
+
+    &.has-error {
+        .label {
+            color: #CA4747;
+
+            .help-block {
+                font-family: $base-font-family;
+            }
+        }
     }
 }
