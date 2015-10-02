@@ -21,7 +21,7 @@ framework:
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
-        #assets_version: SomeVersionScheme
+        assets_version: %assets_version%
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -35,6 +35,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - bootstrap_3_layout.html.twig
+        - AppMainBundle::form.html.twig
 
 # Assetic Configuration
 assetic:
@@ -70,13 +73,6 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        mappings:
-            entity:
-                type: yml
-                prefix: App\Domain
-                dir: %kernel.root_dir%/../src/App/Bundle/MainBundle/Resources/config/doctrine/entity
-                alias: Entity
-                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:

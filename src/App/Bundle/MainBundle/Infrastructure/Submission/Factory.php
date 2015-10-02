@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Bundle\MainBundle\Infrastructure\Post;
+namespace App\Bundle\MainBundle\Infrastructure\Submission;
 
-use App\Bundle\MainBundle\Form\Model\Post\Add as AddModel;
+use App\Bundle\MainBundle\Form\Model\Submission\Add as AddModel;
 use App\Bundle\MainBundle\Infrastructure\Clock\Clock;
-use App\Domain\Post\Post;
 use App\Domain\Post\Resolver\ResolverInterface;
 use App\Domain\Submission\Submission;
 
 /**
- * Create a new Post
+ * Create a new Submission
  */
 class Factory
 {
@@ -28,7 +27,7 @@ class Factory
     private $resolver;
 
     /**
-     * The Post constructor
+     * The Submission constructor
      *
      * @param Clock             $clock
      * @param ResolverInterface $resolver
@@ -40,11 +39,11 @@ class Factory
     }
 
     /**
-     * Create a new post from the form model
+     * Create a new submission from the form model
      *
      * @param AddModel $model
      *
-     * @return Post
+     * @return Submission
      */
     public function create(AddModel $model)
     {
@@ -54,8 +53,8 @@ class Factory
         $now     = $this->clock->now();
         $baseUrl = $model->url;
 
-        $post = new Post($title, $key, $now, $baseUrl, $author);
+        $submission = new Submission($title, $key, $now, $baseUrl, $author);
 
-        return $post;
+        return $submission;
     }
 }

@@ -10,6 +10,16 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+## v1.1.0 - 2015-10-02
+### Added
+- Submission of new plays
+- Ability for admins to validate and reject submissions
+- Link to the submit page in the main menu
+- Assets version number
+
+### Changed
+- Set proper home, show and soon pages titles
+
 ## v1.0.2 - 2015-09-22
 ### Added
 - Author display on the show page

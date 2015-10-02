@@ -1,4 +1,6 @@
 services:
+    app_main.post.entity_converter:
+        class: App\Bundle\MainBundle\Infrastructure\Post\EntityConverter
     app_main.post.resolver:
         class: App\Domain\Post\Resolver\BusResolver
         arguments:
@@ -22,6 +24,7 @@ services:
         class: App\Bundle\MainBundle\Infrastructure\Post\DoctrineWriter
         arguments:
             - @doctrine.orm.entity_manager
+            - @app_main.post.entity_converter
     app_main.post.paginator.date:
         class: App\Application\Post\Paginator\Paginator
         arguments:

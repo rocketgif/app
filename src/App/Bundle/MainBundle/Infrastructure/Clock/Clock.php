@@ -2,15 +2,15 @@
 
 namespace App\Bundle\MainBundle\Infrastructure\Clock;
 
+use App\Domain\Clock\ClockInterface;
+
 /**
- * A clock used to retrieve datetimes
+ * A clock using PHP DateTime
  */
-class Clock
+class Clock implements ClockInterface
 {
     /**
-     * Retrieve the current time
-     *
-     * @return \DateTime
+     * {@inheritdoc}
      */
     public function now()
     {

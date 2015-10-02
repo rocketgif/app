@@ -46,6 +46,6 @@ class DateLister implements ListerInterface
      */
     private function getRepository()
     {
-        return $this->entityManager->getRepository('Entity:Post');
+        return $this->entityManager->getRepository('AppMainBundle:Post\Post');
     }
 }
