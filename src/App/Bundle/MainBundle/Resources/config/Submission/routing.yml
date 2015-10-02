@@ -1,0 +1,19 @@
+app_main_submission_add:
+    path:     /submit
+    defaults: { _controller: AppMainBundle:Submission:add }
+
+app_main_submission_list:
+    path:     /admin/submission/list
+    defaults: { _controller: AppMainBundle:Submission:list }
+
+app_main_submission_validate:
+    path:     /admin/submission/validate/{identifier}
+    defaults: { _controller: AppMainBundle:Submission:validate }
+    requirements:
+        identifier: \d+
+
+app_main_submission_refuse:
+    path:     /admin/submission/refuse/{identifier}
+    defaults: { _controller: AppMainBundle:Submission:refuse }
+    requirements:
+        identifier: \d+

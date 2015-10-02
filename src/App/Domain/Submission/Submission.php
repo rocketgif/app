@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain;
+namespace App\Domain\Submission;
 
 /**
- * A rocketgif post
+ * A post submission
  */
-class Post
+class Submission
 {
     /**
      * The identifier
@@ -68,6 +68,18 @@ class Post
     }
 
     /**
+     * Set identifier
+     *
+     * @return self
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+
+        return $this;
+    }
+
+    /**
      * Get identifier
      *
      * @return int
@@ -115,5 +127,15 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Get baseUrl
+     *
+     * @return string
+     */
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
     }
 }

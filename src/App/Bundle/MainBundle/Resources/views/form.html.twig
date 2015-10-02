@@ -1,0 +1,31 @@
+{% block form_row -%}
+    <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
+        <div class="label">
+            {{- form_label(form) -}}
+            {{- form_errors(form) -}}
+        </div>
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock form_row %}
+
+{% block form_errors -%}
+    {% if errors|length > 0 -%}
+        {% if form.parent -%}
+            <span class="help-block">
+                (
+                    {%- for error in errors -%}
+                        {% if not loop.first %}&nbsp;{% endif %}{{ error.message }}
+                    {%- endfor -%}
+                )
+            </span>
+        {%- else -%}
+            <div class="alert alert-danger">
+                <ul class="list-unstyled">
+                    {%- for error in errors -%}
+                        <li><span class="glyphicon glyphicon-exclamation-sign"></span> {{ error.message }}</li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        {%- endif %}
+    {%- endif %}
+{%- endblock form_errors %}

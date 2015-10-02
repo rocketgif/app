@@ -13,6 +13,17 @@ use Doctrine\ORM\EntityRepository;
 class PostRepository extends EntityRepository
 {
     /**
+     * Save the given entity in database
+     *
+     * @param Post $post
+     */
+    public function save(Post $post)
+    {
+        $this->getEntityManager()->persist($post);
+        $this->getEntityManager()->flush($post);
+    }
+
+    /**
      * Retrieve posts having the given identifiers
      *
      * @param int[] $identifiers

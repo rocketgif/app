@@ -2,8 +2,6 @@
 
 namespace App\Domain\Post;
 
-use App\Domain\Post;
-
 /**
  * The service to perform write, edit and delete operations about posts on the
  * database

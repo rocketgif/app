@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Bundle\MainBundle\Infrastructure\Post;
+namespace App\Bundle\MainBundle\Infrastructure\Submission;
 
-use App\Bundle\MainBundle\Entity\Post\Post as PostEntity;
-use App\Domain\Post\Post;
-use App\Domain\Post\WriterInterface;
+use App\Bundle\MainBundle\Entity\Submission as SubmissionEntity;
+use App\Domain\Submission\Submission;
+use App\Domain\Submission\WriterInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Write, edit and delete posts using Doctrine
+ * Write, edit and delete submissions using Doctrine
  */
 class DoctrineWriter implements WriterInterface
 {
@@ -20,7 +20,7 @@ class DoctrineWriter implements WriterInterface
     private $entityManager;
 
     /**
-     * The service used to convert posts from/to entities
+     * The service used to convert submissions from/to entities
      *
      * @var EntityConverter
      */
@@ -41,22 +41,34 @@ class DoctrineWriter implements WriterInterface
     /**
      * {@inheritdoc}
      */
-    public function add(Post $post)
+    public function add(Submission $submission)
     {
-        $entity = $this->find($post->getIdentifier());
+        $entity = $this->find($submission->getIdentifier());
 
-        $this->converter->computeTo($post, $entity);
+        $this->converter->computeTo($submission, $entity);
 
         $this->getRepository()->save($entity);
     }
 
     /**
-     * Find a post with the given identifier or create a new one if none is
-     * found
+     * {@inheritdoc}
+     */
+    public function delete(Submission $submission)
+    {
+        $entity = $this->find($submission->getIdentifier());
+
+        $this->converter->computeTo($submission, $entity);
+
+        $this->getRepository()->delete($entity);
+    }
+
+    /**
+     * Find a submission with the given identifier or create a new one if none
+     * is found
      *
      * @param int|null $identifier
      *
-     * @return PostEntity
+     * @return SubmissionEntity
      */
     private function find($identifier = null)
     {
@@ -66,19 +78,19 @@ class DoctrineWriter implements WriterInterface
             $entity = $this->getRepository()->findByIdentifier($identifier);
         }
         if ($entity === null) {
-            $entity = new PostEntity();
+            $entity = new SubmissionEntity();
         }
 
         return $entity;
     }
 
     /**
-     * Retrieve the post entity repository
+     * Retrieve the submission entity repository
      *
-     * @return \App\Bundle\MainBundle\Entity\Post\PostRepository
+     * @return \App\Bundle\MainBundle\Entity\SubmissionRepository
      */
     private function getRepository()
     {
-        return $this->entityManager->getRepository('AppMainBundle:Post\Post');
+        return $this->entityManager->getRepository('AppMainBundle:Submission');
     }
 }

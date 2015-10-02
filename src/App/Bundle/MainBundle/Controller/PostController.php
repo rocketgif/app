@@ -4,12 +4,12 @@ namespace App\Bundle\MainBundle\Controller;
 
 use App\Bundle\MainBundle\Form\Model\Post\Add as AddPostModel;
 use App\Bundle\MainBundle\Form\Type\Post\AddType as AddPostType;
-use App\Domain\Post;
+use App\Bundle\MainBundle\Entity\Post\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * The controller handling the homepage action
+ * The controller handling the Post actions
  */
 class PostController extends Controller
 {
@@ -89,6 +89,8 @@ class PostController extends Controller
     }
 
     /**
+     * Create the form to add a post
+     *
      * @param AddPostModel $model
      *
      * @return \Symfony\Component\Form\Form

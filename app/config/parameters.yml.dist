@@ -23,3 +23,7 @@ parameters:
     piwik.site_id: false
     # Should be piwik.domain.tld
     piwik.tracker_url: false
+
+    # This option is used to bust the cache on assets by globally adding a query
+    # parameter to all rendered asset paths
+    assets_version: v1
