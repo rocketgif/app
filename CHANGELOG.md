@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- Submission of new plays
+- Ability for admins to validate and reject submissions
+- Link to the submit page in the main menu
 
 ### Changed
 
