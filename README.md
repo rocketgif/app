@@ -10,7 +10,7 @@ Download packages
 
 Compile assets
 
-    #  compilation (watch & minification)
+    # Compilation (watch & minification)
     $ gulp
 
     # Prod compilation (minification)
@@ -18,3 +18,13 @@ Compile assets
 
     # Dev compilation (watch & no-minification)
     $ gulp --dev
+
+### Docker Installation
+
+#### Varnish
+
+Replace `$app_container_name` by the name of the main running application
+container.
+
+    docker pull jacksoncage/varnish
+    docker run -d -v `pwd`/docker/varnish.vcl:/etc/varnish/default.vcl:ro -p 80 --link $app_container_name:app jacksoncage/varnish
