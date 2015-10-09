@@ -57,7 +57,7 @@ class Factory
         $webm    = $data['webm'];
         $mp4     = $data['mp4'];
 
-        $post = new Post($title, $key, $now, $baseUrl, $author, $webm, $mp4);
+        $post = new Post($title, $key, $now, $baseUrl, $webm, $mp4, $author);
 
         return $post;
     }

@@ -57,7 +57,7 @@ class Factory
         $mp4     = $data['mp4'];
 
         $submission = new Submission(
-            $title, $key, $now, $baseUrl, $author, $webm, $mp4
+            $title, $key, $now, $baseUrl, $webm, $mp4, $author
         );
 
         return $submission;
