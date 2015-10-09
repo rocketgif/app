@@ -71,18 +71,18 @@ class Submission
     /**
      * The webmUrl
      *
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="webm_url", type="string", nullable=true)
+     * @ORM\Column(name="webm_url", type="string", nullable=false)
      */
     private $webmUrl;
 
     /**
      * The mp4Url
      *
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="mp4_url", type="string", nullable=true)
+     * @ORM\Column(name="mp4_url", type="string", nullable=false)
      */
     private $mp4Url;
 
@@ -221,7 +221,7 @@ class Submission
     /**
      * Get webmUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getWebmUrl()
     {
@@ -231,11 +231,11 @@ class Submission
     /**
      * Set webmUrl
      *
-     * @param string|null $webmUrl
+     * @param string $webmUrl
      *
      * @return self
      */
-    public function setWebmUrl($webmUrl = null)
+    public function setWebmUrl($webmUrl)
     {
         $this->webmUrl = $webmUrl;
 
@@ -245,7 +245,7 @@ class Submission
     /**
      * Get mp4Url
      *
-     * @return string|null
+     * @return string
      */
     public function getMp4Url()
     {
@@ -255,11 +255,11 @@ class Submission
     /**
      * Set mp4Url
      *
-     * @param string|null $mp4Url
+     * @param string $mp4Url
      *
      * @return self
      */
-    public function setMp4Url($mp4Url = null)
+    public function setMp4Url($mp4Url)
     {
         $this->mp4Url = $mp4Url;
 

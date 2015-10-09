@@ -52,14 +52,14 @@ class Post
     /**
      * The webmUrl
      *
-     * @var string|null
+     * @var string
      */
     private $webmUrl;
 
     /**
      * The mp4Url
      *
-     * @var string|null
+     * @var string
      */
     private $mp4Url;
 
@@ -70,21 +70,21 @@ class Post
      * @param string      $gfycatKey
      * @param \DateTime   $createdAt
      * @param string      $baseUrl
+     * @param string      $webmUrl
+     * @param string      $mp4Url
      * @param string|null $author
-     * @param string|null $webmUrl
-     * @param string|null $mp4Url
      */
     public function __construct(
-        $title, $gfycatKey, \DateTime $createdAt, $baseUrl,
-        $author = null, $webmUrl = null, $mp4Url = null
+        $title, $gfycatKey, \DateTime $createdAt, $baseUrl, $webmUrl, $mp4Url,
+        $author = null
     ) {
         $this->title     = $title;
         $this->gfycatKey = $gfycatKey;
         $this->createdAt = $createdAt;
         $this->baseUrl   = $baseUrl;
-        $this->author    = $author;
         $this->webmUrl   = $webmUrl;
         $this->mp4Url    = $mp4Url;
+        $this->author    = $author;
     }
 
     /**
@@ -150,7 +150,7 @@ class Post
     /**
      * Get webmUrl
      *
-     * @return string|null
+     * @return string
      */
     public function getWebmUrl()
     {
@@ -160,7 +160,7 @@ class Post
     /**
      * Get mp4Url
      *
-     * @return string|null
+     * @return string
      */
     public function getMp4Url()
     {
