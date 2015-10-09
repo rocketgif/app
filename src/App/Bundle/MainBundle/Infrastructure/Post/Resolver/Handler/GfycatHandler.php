@@ -34,8 +34,8 @@ class GfycatHandler implements HandlerInterface
 
         $data = [
             'key'  => $key,
-            'webm' => isset($result->gfyItem->webmUrl) ? $result->gfyItem->webmUrl : null,
-            'mp4'  => isset($result->gfyItem->mp4Url) ? $result->gfyItem->mp4Url : null,
+            'webm' => $this->transformUrl($result->gfyItem->webmUrl),
+            'mp4'  => $this->transformUrl($result->gfyItem->mp4Url),
         ];
 
         return $data;
@@ -63,5 +63,19 @@ class GfycatHandler implements HandlerInterface
         $key = $matches['key'];
 
         return $key;
+    }
+
+    /**
+     * Transform a given HTTP url to HTTPS url
+     *
+     * @param  string $url
+     *
+     * @return string
+     */
+    private function transformUrl($url)
+    {
+        $url = preg_replace('#^http://#', 'https://', $url);
+
+        return $url;
     }
 }
