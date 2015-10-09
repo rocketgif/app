@@ -4,6 +4,7 @@ namespace App\Bundle\MainBundle\Infrastructure\Post\Resolver\Handler;
 
 use App\Domain\Post\Resolver\Exception\InvalidUrlException;
 use App\Domain\Post\Resolver\Handler\HandlerInterface;
+use App\Domain\Post\Resolver\Video;
 use GuzzleHttp\Client;
 use GuzzleHttp\GuzzleException;
 
@@ -36,13 +37,13 @@ class GfycatHandler implements HandlerInterface
             throw new InvalidUrlException(sprintf('Gfycat didn\'t provide both webm and mp4 links for the URL "%s".', $url));
         }
 
-        $data = [
-            'key'  => $key,
-            'webm' => $this->transformUrl($result->gfyItem->webmUrl),
-            'mp4'  => $this->transformUrl($result->gfyItem->mp4Url),
-        ];
+        $video = new Video(
+            $key,
+            $this->transformUrl($result->gfyItem->webmUrl),
+            $this->transformUrl($result->gfyItem->mp4Url)
+        );
 
-        return $data;
+        return $video;
     }
 
     /**
@@ -72,7 +73,7 @@ class GfycatHandler implements HandlerInterface
     /**
      * Transform a given HTTP url to HTTPS url
      *
-     * @param  string $url
+     * @param string $url
      *
      * @return string
      */

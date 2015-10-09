@@ -50,16 +50,16 @@ class Submission
     private $author;
 
     /**
-     * The webmUrl
+     * The webm URL
      *
-     * @var string|null
+     * @var string
      */
     private $webmUrl;
 
     /**
-     * The mp4Url
+     * The mp4 URL
      *
-     * @var string|null
+     * @var string
      */
     private $mp4Url;
 

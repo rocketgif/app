@@ -12,7 +12,7 @@ interface ResolverInterface
      *
      * @param string $url
      *
-     * @return string
+     * @return Video
      */
     public function resolve($url);
 }
