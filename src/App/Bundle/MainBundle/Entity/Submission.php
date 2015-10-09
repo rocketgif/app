@@ -62,11 +62,29 @@ class Submission
     /**
      * The author
      *
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="author", type="string", nullable=true)
      */
     private $author;
+
+    /**
+     * The webmUrl
+     *
+     * @var string|null
+     *
+     * @ORM\Column(name="webm_url", type="string", nullable=true)
+     */
+    private $webmUrl;
+
+    /**
+     * The mp4Url
+     *
+     * @var string|null
+     *
+     * @ORM\Column(name="mp4_url", type="string", nullable=true)
+     */
+    private $mp4Url;
 
     /**
      * Set identifier
@@ -183,7 +201,7 @@ class Submission
      *
      * @return self
      */
-    public function setAuthor($author)
+    public function setAuthor($author = null)
     {
         $this->author = $author;
 
@@ -193,10 +211,58 @@ class Submission
     /**
      * Get author
      *
-     * @return string
+     * @return string|null
      */
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Get webmUrl
+     *
+     * @return string|null
+     */
+    public function getWebmUrl()
+    {
+        return $this->webmUrl;
+    }
+
+    /**
+     * Set webmUrl
+     *
+     * @param string|null $webmUrl
+     *
+     * @return self
+     */
+    public function setWebmUrl($webmUrl = null)
+    {
+        $this->webmUrl = $webmUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get mp4Url
+     *
+     * @return string|null
+     */
+    public function getMp4Url()
+    {
+        return $this->mp4Url;
+    }
+
+    /**
+     * Set mp4Url
+     *
+     * @param string|null $mp4Url
+     *
+     * @return self
+     */
+    public function setMp4Url($mp4Url = null)
+    {
+        $this->mp4Url = $mp4Url;
+
+        return $this;
     }
 }

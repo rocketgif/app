@@ -50,6 +50,20 @@ class Post
     private $author;
 
     /**
+     * The webmUrl
+     *
+     * @var string|null
+     */
+    private $webmUrl;
+
+    /**
+     * The mp4Url
+     *
+     * @var string|null
+     */
+    private $mp4Url;
+
+    /**
      * __construct
      *
      * @param string      $title
@@ -57,14 +71,20 @@ class Post
      * @param \DateTime   $createdAt
      * @param string      $baseUrl
      * @param string|null $author
+     * @param string|null $webmUrl
+     * @param string|null $mp4Url
      */
-    public function __construct($title, $gfycatKey, \DateTime $createdAt, $baseUrl, $author = null)
-    {
+    public function __construct(
+        $title, $gfycatKey, \DateTime $createdAt, $baseUrl,
+        $author = null, $webmUrl = null, $mp4Url = null
+    ) {
         $this->title     = $title;
         $this->gfycatKey = $gfycatKey;
         $this->createdAt = $createdAt;
         $this->baseUrl   = $baseUrl;
         $this->author    = $author;
+        $this->webmUrl   = $webmUrl;
+        $this->mp4Url    = $mp4Url;
     }
 
     /**
@@ -125,5 +145,25 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Get webmUrl
+     *
+     * @return string|null
+     */
+    public function getWebmUrl()
+    {
+        return $this->webmUrl;
+    }
+
+    /**
+     * Get mp4Url
+     *
+     * @return string|null
+     */
+    public function getMp4Url()
+    {
+        return $this->mp4Url;
     }
 }
