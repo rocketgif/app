@@ -69,7 +69,7 @@ class Submission
     private $author;
 
     /**
-     * The webmUrl
+     * The webm URL
      *
      * @var string
      *
@@ -78,7 +78,7 @@ class Submission
     private $webmUrl;
 
     /**
-     * The mp4Url
+     * The mp4 URL
      *
      * @var string
      *
