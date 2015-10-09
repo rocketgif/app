@@ -92,11 +92,14 @@ class Validator implements ValidatorInterface
     {
         $title   = $submission->getTitle();
         $author  = $submission->getAuthor();
-        $key     = $this->resolver->resolve($submission->getBaseUrl());
         $now     = $this->clock->now();
         $baseUrl = $submission->getBaseUrl();
+        $data    = $this->resolver->resolve($submission->getBaseUrl());
+        $key     = $data['key'];
+        $webm    = $data['webm'];
+        $mp4     = $data['mp4'];
 
-        $post = new Post($title, $key, $now, $baseUrl, $author);
+        $post = new Post($title, $key, $now, $baseUrl, $author, $webm, $mp4);
 
         return $post;
     }

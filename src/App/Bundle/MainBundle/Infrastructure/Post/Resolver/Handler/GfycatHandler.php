@@ -28,11 +28,17 @@ class GfycatHandler implements HandlerInterface
 
         $result = json_decode($response->getBody()->getContents());
 
-        if (!isset($result->gfyItem) || !isset($result->gfyItem->gifUrl)) {
+        if (!isset($result->gfyItem)) {
             throw new InvalidUrlException(sprintf('The URL "%s" is not linking to valid Gfycat.', $url));
         }
 
-        return $key;
+        $data = [
+            'key'  => $key,
+            'webm' => isset($result->gfyItem->webmUrl) ? $result->gfyItem->webmUrl : null,
+            'mp4'  => isset($result->gfyItem->mp4Url) ? $result->gfyItem->mp4Url : null,
+        ];
+
+        return $data;
     }
 
     /**

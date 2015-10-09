@@ -50,11 +50,14 @@ class Factory
     {
         $title   = $model->title;
         $author  = $model->author;
-        $key     = $this->resolver->resolve($model->url);
         $now     = $this->clock->now();
         $baseUrl = $model->url;
+        $data    = $this->resolver->resolve($model->url);
+        $key     = $data['key'];
+        $webm    = $data['webm'];
+        $mp4     = $data['mp4'];
 
-        $post = new Post($title, $key, $now, $baseUrl, $author);
+        $post = new Post($title, $key, $now, $baseUrl, $author, $webm, $mp4);
 
         return $post;
     }
