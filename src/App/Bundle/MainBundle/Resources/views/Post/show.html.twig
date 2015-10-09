@@ -2,6 +2,20 @@
 
 {% block title %}{{ post.title }} by {{ post.author }} - Rocketgif{% endblock %}
 
+{% block meta %}
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@rocketgif">
+    <meta name="twitter:title" content="{{ post.title }}">
+    <meta name="twitter:description" content="{{ post.title }}">
+    <meta name="twitter:image" content="https://thumbs.gfycat.com/{{ post.gfycatKey }}-poster.jpg">
+    <meta name="twitter:player" content="{{ post.baseUrl }}">
+    <meta name="twitter:player:stream" content="{{ post.webmUrl }}">
+    <meta name="twitter:player:stream" content="{{ post.mp4Url }}">
+    <meta name="twitter:player:stream:content_type" content="video/mp4">
+    <meta name="twitter:player:width" content="800">
+    <meta name="twitter:player:height" content="450">
+{% endblock %}
+
 {% block main %}
     <article>
         <figure>
