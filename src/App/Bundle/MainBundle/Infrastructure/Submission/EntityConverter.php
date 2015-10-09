@@ -24,9 +24,9 @@ class EntityConverter
             $entity->getGfycatKey(),
             $entity->getCreatedAt(),
             $entity->getBaseUrl(),
-            $entity->getAuthor(),
             $entity->getWebmUrl(),
-            $entity->getMp4Url()
+            $entity->getMp4Url(),
+            $entity->getAuthor()
         );
         $submission->setIdentifier($entity->getIdentifier());
 
