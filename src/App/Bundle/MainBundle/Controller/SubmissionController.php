@@ -2,11 +2,13 @@
 
 namespace App\Bundle\MainBundle\Controller;
 
+use App\Bundle\MainBundle\Entity\Submission;
 use App\Bundle\MainBundle\Form\Model\Submission\Add as AddSubmissionModel;
 use App\Bundle\MainBundle\Form\Type\Submission\AddType as AddSubmissionType;
-use App\Bundle\MainBundle\Entity\Submission;
+use App\Domain\Post\Resolver\Exception\InvalidUrlException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -27,12 +29,16 @@ class SubmissionController extends Controller
         $form  = $this->createAddSubmissionForm($model);
 
         if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
-            $submission = $this->get('app_main.submission.factory')->create($model);
-            $this->get('app_main.submission.writer')->add($submission);
+            try {
+                $submission = $this->get('app_main.submission.factory')->create($model);
+                $this->get('app_main.submission.writer')->add($submission);
 
-            $this->addFlash('success', 'flash.submission.add.success');
+                $this->addFlash('success', 'flash.submission.add.success');
 
-            return $this->redirectToRoute('app_main_submission_add');
+                return $this->redirectToRoute('app_main_submission_add');
+            } catch (InvalidUrlException $exception) {
+                $form->get('url')->addError(new FormError('Unfortunately, this URL didn\'t allow us to collect all necessary data. Please try to enter another URL.'));
+            }
         }
 
         return $this->render('AppMainBundle:Submission:add.html.twig', [
