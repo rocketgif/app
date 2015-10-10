@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+## v1.1.1 - 2015-10-10
+### Added
+- Add links to tweet posts more easily in the admin
+- Twitter card on show pages
+
 ## v1.1.0 - 2015-10-02
 ### Added
 - Submission of new plays

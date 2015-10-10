@@ -24,9 +24,11 @@ class EntityConverter
             $entity->getGfycatKey(),
             $entity->getCreatedAt(),
             $entity->getBaseUrl(),
+            $entity->getWebmUrl(),
+            $entity->getMp4Url(),
             $entity->getAuthor()
         );
-        $post->setIdentifier($entity->getId());
+        $post->setIdentifier($entity->getIdentifier());
 
         return $post;
     }
@@ -45,6 +47,8 @@ class EntityConverter
             ->setGfycatKey($post->getGfycatKey())
             ->setBaseUrl($post->getBaseUrl())
             ->setCreatedAt($post->getCreatedAt())
+            ->setWebmUrl($post->getWebmUrl())
+            ->setMp4Url($post->getMp4Url())
         ;
     }
 }

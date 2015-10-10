@@ -4,6 +4,7 @@ namespace App\Bundle\MainBundle\Infrastructure\Post\Resolver\Handler;
 
 use App\Domain\Post\Resolver\Exception\InvalidUrlException;
 use App\Domain\Post\Resolver\Handler\HandlerInterface;
+use App\Domain\Post\Resolver\Video;
 use GuzzleHttp\Client;
 use GuzzleHttp\GuzzleException;
 
@@ -28,11 +29,21 @@ class GfycatHandler implements HandlerInterface
 
         $result = json_decode($response->getBody()->getContents());
 
-        if (!isset($result->gfyItem) || !isset($result->gfyItem->gifUrl)) {
+        if (!isset($result->gfyItem)) {
             throw new InvalidUrlException(sprintf('The URL "%s" is not linking to valid Gfycat.', $url));
         }
 
-        return $key;
+        if ($result->gfyItem->webmUrl === null || $result->gfyItem->mp4Url === null) {
+            throw new InvalidUrlException(sprintf('Gfycat didn\'t provide both webm and mp4 links for the URL "%s".', $url));
+        }
+
+        $video = new Video(
+            $key,
+            $this->transformUrl($result->gfyItem->webmUrl),
+            $this->transformUrl($result->gfyItem->mp4Url)
+        );
+
+        return $video;
     }
 
     /**
@@ -57,5 +68,19 @@ class GfycatHandler implements HandlerInterface
         $key = $matches['key'];
 
         return $key;
+    }
+
+    /**
+     * Transform a given HTTP url to HTTPS url
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    private function transformUrl($url)
+    {
+        $url = preg_replace('#^http://#', 'https://', $url);
+
+        return $url;
     }
 }

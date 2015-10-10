@@ -15,7 +15,7 @@ interface HandlerInterface
      *
      * @param string $url
      *
-     * @return string
+     * @return \App\Domain\Post\Resolver\Video
      *
      * @throws \App\Domain\Post\Resolver\Exception\InvalidUrlException
      */

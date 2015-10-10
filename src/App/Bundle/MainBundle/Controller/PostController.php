@@ -36,6 +36,24 @@ class PostController extends Controller
     }
 
     /**
+     * Render the post list for admin
+     *
+     * @param Request $request
+     * @param int     $page
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listAdminAction(Request $request, $page)
+    {
+        $orderedPosts = $this->get('app_main.post.paginator.date')->page($page);
+
+        return $this->render('AppMainBundle:Post:listAdmin.html.twig', [
+            'posts'    => $orderedPosts,
+            'nextPage' => $page + 1,
+        ]);
+    }
+
+    /**
      * Render a post
      *
      * @param Request $request

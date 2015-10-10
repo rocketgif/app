@@ -2,6 +2,12 @@ app_main_post_add:
     path:     /admin/post/add
     defaults: { _controller: AppMainBundle:Post:add }
 
+app_main_post_list_admin:
+    path:     /admin/post/list/{page}
+    defaults: { _controller: AppMainBundle:Post:listAdmin, page: 1 }
+    requirements:
+        page: \d+
+
 app_main_post_list:
     path:     /plays/{page}
     defaults: { _controller: AppMainBundle:Post:list }

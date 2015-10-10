@@ -1,3 +1,11 @@
 services:
     app_main.clock:
         class: App\Bundle\MainBundle\Infrastructure\Clock\Clock
+    app_main.command.update_url:
+        class: App\Bundle\MainBundle\Command\UpdateUrlCommand
+        tags:
+            -  { name: console.command }
+        arguments:
+            - @app_main.post.reader
+            - @app_main.post.writer
+            - @app_main.post.resolver.handler.gfycat

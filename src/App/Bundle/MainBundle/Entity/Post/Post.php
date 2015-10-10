@@ -69,6 +69,24 @@ class Post
     private $author;
 
     /**
+     * The webm URL
+     *
+     * @var string
+     *
+     * @ORM\Column(name="webm_url", type="string", nullable=false)
+     */
+    private $webmUrl;
+
+    /**
+     * The mp4 URL
+     *
+     * @var string
+     *
+     * @ORM\Column(name="mp4_url", type="string", nullable=false)
+     */
+    private $mp4Url;
+
+    /**
      * Get identifier
      *
      * @return int
@@ -194,6 +212,54 @@ class Post
     public function setAuthor($author = null)
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get webmUrl
+     *
+     * @return string
+     */
+    public function getWebmUrl()
+    {
+        return $this->webmUrl;
+    }
+
+    /**
+     * Set webmUrl
+     *
+     * @param string $webmUrl
+     *
+     * @return self
+     */
+    public function setWebmUrl($webmUrl)
+    {
+        $this->webmUrl = $webmUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get mp4Url
+     *
+     * @return string
+     */
+    public function getMp4Url()
+    {
+        return $this->mp4Url;
+    }
+
+    /**
+     * Set mp4Url
+     *
+     * @param string $mp4Url
+     *
+     * @return self
+     */
+    public function setMp4Url($mp4Url)
+    {
+        $this->mp4Url = $mp4Url;
 
         return $this;
     }

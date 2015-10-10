@@ -20,6 +20,7 @@ services:
         class: App\Bundle\MainBundle\Infrastructure\Post\DoctrineReader
         arguments:
             - @doctrine.orm.entity_manager
+            - @app_main.post.entity_converter
     app_main.post.writer:
         class: App\Bundle\MainBundle\Infrastructure\Post\DoctrineWriter
         arguments:
