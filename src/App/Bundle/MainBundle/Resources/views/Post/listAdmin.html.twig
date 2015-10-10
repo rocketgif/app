@@ -1,0 +1,19 @@
+{% extends 'AppMainBundle::layout.html.twig' %}
+
+{% block main %}
+    <ul>
+        {% for post in posts %}
+            <li>
+                {{ post.title }} by {{ post.author }} ---
+                <a href="https://twitter.com/intent/tweet?text={{ post.title }} %23RocketLeague {{ url('app_main_post_show', {'identifier': post.identifier}) }}" target="_blank">
+                    Tweet
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if nextPage %}
+        <div class="next">
+            <a class="btn" href="{{ path('app_main_post_list_admin', {'page': nextPage}) }}">show more</a>
+        </div>
+    {% endif %}
+{% endblock %}
