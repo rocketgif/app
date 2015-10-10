@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- Add links to tweet posts more easily in the admin
 
 ### Changed
 
