@@ -50,12 +50,29 @@ class Factory
     {
         $title   = $model->title;
         $author  = $model->author;
-        $key     = $this->resolver->resolve($model->url);
         $now     = $this->clock->now();
-        $baseUrl = $model->url;
+        $baseUrl = $this->transformUrl($model->url);
+        $video   = $this->resolver->resolve($model->url);
+        $key     = $video->getKey();
+        $webm    = $video->getWebmUrl();
+        $mp4     = $video->getMp4Url();
 
-        $post = new Post($title, $key, $now, $baseUrl, $author);
+        $post = new Post($title, $key, $now, $baseUrl, $webm, $mp4, $author);
 
         return $post;
+    }
+
+    /**
+     * Transform a given HTTP url to HTTPS url
+     *
+     * @param  string $url
+     *
+     * @return string
+     */
+    private function transformUrl($url)
+    {
+        $url = preg_replace('#^http://#', 'https://', $url);
+
+        return $url;
     }
 }

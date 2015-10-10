@@ -24,6 +24,22 @@ class PostRepository extends EntityRepository
     }
 
     /**
+     * Find the post having the given identifier
+     *
+     * @return Post|null
+     */
+    public function findByIdentifier($identifier)
+    {
+        $builder = $this->createQueryBuilder('post');
+        $builder
+            ->where('post.identifier = :identifier')
+            ->setParameter('identifier', $identifier)
+        ;
+
+        return $builder->getQuery()->getOneOrNullResult();
+    }
+
+    /**
      * Retrieve posts having the given identifiers
      *
      * @param int[] $identifiers
@@ -37,6 +53,18 @@ class PostRepository extends EntityRepository
             ->where('post.identifier IN (:identifiers)')
             ->setParameter('identifiers', $identifiers)
         ;
+
+        return $builder->getQuery()->getResult();
+    }
+
+    /**
+     * Retrieve all posts
+     *
+     * @return Post[]
+     */
+    public function findAll()
+    {
+        $builder = $this->createQueryBuilder('post');
 
         return $builder->getQuery()->getResult();
     }
