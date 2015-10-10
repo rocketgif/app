@@ -2,6 +2,7 @@
 
 namespace App\Bundle\MainBundle\Infrastructure\Post;
 
+use App\Bundle\MainBundle\Infrastructure\Post\EntityConverter;
 use App\Domain\Post\ReaderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -18,13 +19,24 @@ class DoctrineReader implements ReaderInterface
     private $entityManager;
 
     /**
+     * The service used to convert posts from/to entities
+     *
+     * @var EntityConverter
+     */
+    private $converter;
+
+    /**
      * __construct
      *
      * @param EntityManagerInterface $entityManager
+     * @param EntityConverter $converter
      */
-    public function __construct(EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        EntityConverter $converter
+    ) {
         $this->entityManager = $entityManager;
+        $this->converter     = $converter;
     }
 
     /**
@@ -37,6 +49,22 @@ class DoctrineReader implements ReaderInterface
 
         foreach ($entities as $entity) {
             $posts[$entity->getIdentifier()] = $entity;
+        }
+
+        return $posts;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findAll()
+    {
+        $entities = $this->getRepository()->findAll();
+
+        $posts = [];
+
+        foreach ($entities as $entity) {
+            $posts[] = $this->converter->from($entity);
         }
 
         return $posts;
