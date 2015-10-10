@@ -88,6 +88,18 @@ class Post
     }
 
     /**
+     * Set identifier
+     *
+     * @return self
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+
+        return $this;
+    }
+
+    /**
      * Get identifier
      *
      * @return int
@@ -148,6 +160,20 @@ class Post
     }
 
     /**
+     * Set webm url
+     *
+     * @param string $url
+     *
+     * @return self
+     */
+    public function setWebmUrl($url)
+    {
+        $this->webmUrl = $url;
+
+        return $this;
+    }
+
+    /**
      * Get webmUrl
      *
      * @return string
@@ -155,6 +181,20 @@ class Post
     public function getWebmUrl()
     {
         return $this->webmUrl;
+    }
+
+    /**
+     * Set mp4 url
+     *
+     * @param string $url
+     *
+     * @return self
+     */
+    public function setMp4Url($url)
+    {
+        $this->mp4Url = $url;
+
+        return $this;
     }
 
     /**

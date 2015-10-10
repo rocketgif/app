@@ -16,4 +16,11 @@ interface ReaderInterface
      * @return Post[]
      */
     public function find(array $identifiers);
+
+    /**
+     * Retrieve an array of posts
+     *
+     * @return Post[]
+     */
+    public function findAll();
 }
