@@ -52,10 +52,10 @@ class Factory
         $author  = $model->author;
         $now     = $this->clock->now();
         $baseUrl = $this->transformUrl($model->url);
-        $data    = $this->resolver->resolve($model->url);
-        $key     = $data['key'];
-        $webm    = $data['webm'];
-        $mp4     = $data['mp4'];
+        $video   = $this->resolver->resolve($model->url);
+        $key     = $video->getKey();
+        $webm    = $video->getWebmUrl();
+        $mp4     = $video->getMp4Url();
 
         $post = new Post($title, $key, $now, $baseUrl, $webm, $mp4, $author);
 
