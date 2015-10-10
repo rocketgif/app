@@ -14,4 +14,11 @@ interface WriterInterface
      * @param Post $post
      */
     public function add(Post $post);
+
+    /**
+     * Save given posts
+     *
+     * @param Post[] $posts
+     */
+    public function save(array $posts);
 }

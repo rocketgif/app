@@ -62,7 +62,7 @@ class UpdateUrlCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('rocketgif:url:update')
+            ->setName('rocketgif:post:update-urls')
             ->setDescription('Update mp4 and webm urls for old posts')
         ;
     }
@@ -94,10 +94,10 @@ class UpdateUrlCommand extends Command
             $post->setWebmUrl($video->getWebmUrl());
             $post->setMp4Url($video->getMp4Url());
 
-            $this->writer->add($post);
-
             $progress->advance();
         }
+
+        $this->writer->save($posts);
 
         // Ensure that the progress bar is at 100%
         $progress->finish();

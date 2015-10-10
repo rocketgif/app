@@ -51,6 +51,28 @@ class DoctrineWriter implements WriterInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function save(array $posts)
+    {
+        $postsByIdentifier = [];
+
+        $identifiers = [];
+        foreach ($posts as $post) {
+            $identifier                     = $post->getIdentifier();
+            $identifiers[]                  = $identifier;
+            $postsByIdentifier[$identifier] = $post;
+        }
+
+        $entities = $this->getRepository()->findCollection($identifiers);
+        foreach ($entities as $entity) {
+            $this->converter->computeTo($postsByIdentifier[$entity->getIdentifier()], $entity);
+        }
+
+        $this->entityManager->flush();
+    }
+
+    /**
      * Find a post with the given identifier or create a new one if none is
      * found
      *
