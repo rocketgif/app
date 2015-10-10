@@ -28,7 +28,7 @@ class EntityConverter
             $entity->getMp4Url(),
             $entity->getAuthor()
         );
-        $post->setIdentifier($entity->getId());
+        $post->setIdentifier($entity->getIdentifier());
 
         return $post;
     }
