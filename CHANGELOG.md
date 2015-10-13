@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - Width and height properties to Post and Submission
 
 ### Changed
+- Twitter cards title and description
 
 ### Fixed
 - Twitter meta with the post's width and height
