@@ -9,3 +9,11 @@ services:
             - @app_main.post.reader
             - @app_main.post.writer
             - @app_main.post.resolver.handler.gfycat
+    app_main.command.update_video_size:
+        class: App\Bundle\MainBundle\Command\UpdateVideoSizeCommand
+        tags:
+            -  { name: console.command }
+        arguments:
+            - @app_main.post.reader
+            - @app_main.post.writer
+            - @app_main.post.resolver.handler.gfycat

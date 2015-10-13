@@ -64,6 +64,20 @@ class Post
     private $mp4Url;
 
     /**
+     * The width of the video
+     *
+     * @var int
+     */
+    private $width;
+
+    /**
+     * The height of the video
+     *
+     * @var int
+     */
+    private $height;
+
+    /**
      * __construct
      *
      * @param string      $title
@@ -72,11 +86,13 @@ class Post
      * @param string      $baseUrl
      * @param string      $webmUrl
      * @param string      $mp4Url
+     * @param int         $width
+     * @param int         $height
      * @param string|null $author
      */
     public function __construct(
         $title, $gfycatKey, \DateTime $createdAt, $baseUrl, $webmUrl, $mp4Url,
-        $author = null
+        $width, $height, $author = null
     ) {
         $this->title     = $title;
         $this->gfycatKey = $gfycatKey;
@@ -84,6 +100,8 @@ class Post
         $this->baseUrl   = $baseUrl;
         $this->webmUrl   = $webmUrl;
         $this->mp4Url    = $mp4Url;
+        $this->width     = $width;
+        $this->height    = $height;
         $this->author    = $author;
     }
 
@@ -205,5 +223,53 @@ class Post
     public function getMp4Url()
     {
         return $this->mp4Url;
+    }
+
+    /**
+     * Set width
+     *
+     * @param int $width
+     *
+     * @return self
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    /**
+     * Get width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Set height
+     *
+     * @param int $height
+     *
+     * @return self
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Get height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->height;
     }
 }

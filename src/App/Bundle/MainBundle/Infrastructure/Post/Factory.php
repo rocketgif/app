@@ -56,8 +56,10 @@ class Factory
         $key     = $video->getKey();
         $webm    = $video->getWebmUrl();
         $mp4     = $video->getMp4Url();
+        $width   = $video->getWidth();
+        $height  = $video->getHeight();
 
-        $post = new Post($title, $key, $now, $baseUrl, $webm, $mp4, $author);
+        $post = new Post($title, $key, $now, $baseUrl, $webm, $mp4, $width, $height, $author);
 
         return $post;
     }

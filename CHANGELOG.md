@@ -10,6 +10,17 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+## v1.1.2
+### Added
+- Width and height properties to Post and Submission
+
+### Changed
+- Twitter cards title and description
+
+### Fixed
+- Twitter meta with the post's width and height
+- Twitter meta player's URL
+
 ## v1.1.1 - 2015-10-10
 ### Added
 - Add links to tweet posts more easily in the admin
