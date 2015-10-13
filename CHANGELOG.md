@@ -3,10 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- Width and height properties to Post and Submission
 
 ### Changed
 
 ### Fixed
+- Twitter meta with the post's width and height
 
 ### Removed
 
