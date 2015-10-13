@@ -33,14 +33,21 @@ class GfycatHandler implements HandlerInterface
             throw new InvalidUrlException(sprintf('The URL "%s" is not linking to valid Gfycat.', $url));
         }
 
-        if ($result->gfyItem->webmUrl === null || $result->gfyItem->mp4Url === null) {
-            throw new InvalidUrlException(sprintf('Gfycat didn\'t provide both webm and mp4 links for the URL "%s".', $url));
+        if (
+            $result->gfyItem->webmUrl === null
+            || $result->gfyItem->mp4Url === null
+            || $result->gfyItem->width === null
+            || $result->gfyItem->height === null
+        ) {
+            throw new InvalidUrlException(sprintf('Gfycat didn\'t provide all informations for the URL "%s".', $url));
         }
 
         $video = new Video(
             $key,
             $this->transformUrl($result->gfyItem->webmUrl),
-            $this->transformUrl($result->gfyItem->mp4Url)
+            $this->transformUrl($result->gfyItem->mp4Url),
+            $result->gfyItem->width,
+            $result->gfyItem->height
         );
 
         return $video;

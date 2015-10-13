@@ -87,6 +87,24 @@ class Post
     private $mp4Url;
 
     /**
+     * The width of the video
+     *
+     * @var int
+     *
+     * @ORM\Column(name="width", type="integer", nullable=false)
+     */
+    private $width;
+
+    /**
+     * The height of the video
+     *
+     * @var int
+     *
+     * @ORM\Column(name="height", type="integer", nullable=false)
+     */
+    private $height;
+
+    /**
      * Get identifier
      *
      * @return int
@@ -260,6 +278,54 @@ class Post
     public function setMp4Url($mp4Url)
     {
         $this->mp4Url = $mp4Url;
+
+        return $this;
+    }
+
+    /**
+     * Get width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Set width
+     *
+     * @param int $width
+     *
+     * @return self
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    /**
+     * Get height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Set height
+     *
+     * @param int $height
+     *
+     * @return self
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
 
         return $this;
     }
