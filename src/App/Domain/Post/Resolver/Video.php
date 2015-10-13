@@ -29,17 +29,35 @@ class Video
     private $mp4Url;
 
     /**
+     * The width of the video
+     *
+     * @var int
+     */
+    private $width;
+
+    /**
+     * The height of the video
+     *
+     * @var int
+     */
+    private $height;
+
+    /**
      * __construct
      *
      * @param string $key
      * @param string $webmUrl
      * @param string $mp4Url
+     * @param int    $width
+     * @param int    $height
      */
-    public function __construct($key, $webmUrl, $mp4Url)
+    public function __construct($key, $webmUrl, $mp4Url, $width, $height)
     {
         $this->key     = $key;
         $this->webmUrl = $webmUrl;
         $this->mp4Url  = $mp4Url;
+        $this->width   = $width;
+        $this->height  = $height;
     }
 
     /**
@@ -70,5 +88,25 @@ class Video
     public function getMp4Url()
     {
         return $this->mp4Url;
+    }
+
+    /**
+     * Get width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Get height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->height;
     }
 }

@@ -26,6 +26,8 @@ class EntityConverter
             $entity->getBaseUrl(),
             $entity->getWebmUrl(),
             $entity->getMp4Url(),
+            $entity->getWidth(),
+            $entity->getHeight(),
             $entity->getAuthor()
         );
         $submission->setIdentifier($entity->getIdentifier());
@@ -49,6 +51,8 @@ class EntityConverter
             ->setCreatedAt($submission->getCreatedAt())
             ->setWebmUrl($submission->getWebmUrl())
             ->setMp4Url($submission->getMp4Url())
+            ->setWidth($submission->getWidth())
+            ->setHeight($submission->getHeight())
         ;
     }
 }

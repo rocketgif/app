@@ -55,9 +55,11 @@ class Factory
         $key     = $video->getKey();
         $webm    = $video->getWebmUrl();
         $mp4     = $video->getMp4Url();
+        $width   = $video->getWidth();
+        $height  = $video->getHeight();
 
         $submission = new Submission(
-            $title, $key, $now, $baseUrl, $webm, $mp4, $author
+            $title, $key, $now, $baseUrl, $webm, $mp4, $width, $height, $author
         );
 
         return $submission;
