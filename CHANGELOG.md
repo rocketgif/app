@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Twitter meta with the post's width and height
+- Twitter meta player's URL
 
 ### Removed
 
