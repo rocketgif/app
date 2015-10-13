@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## v1.1.2
+### Added
 - Width and height properties to Post and Submission
 
 ### Changed
@@ -11,8 +20,6 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Twitter meta with the post's width and height
 - Twitter meta player's URL
-
-### Removed
 
 ## v1.1.1 - 2015-10-10
 ### Added
