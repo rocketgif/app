@@ -1,0 +1,5 @@
+services:
+    app_main.user.authenticator:
+        class: App\Bundle\MainBundle\Infrastructure\User\SessionAuthenticator
+        arguments:
+            - @session

@@ -20,7 +20,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "guzzlehttp/guzzle": "~6.1",
         "doctrine/migrations": "dev-master",
-        "doctrine/doctrine-migrations-bundle": "dev-master"
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "ramsey/uuid": "~2.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

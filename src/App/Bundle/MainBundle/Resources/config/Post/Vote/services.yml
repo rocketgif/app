@@ -1,0 +1,20 @@
+services:
+    app_main.event.subscriber.post.vote:
+        class: App\Bundle\MainBundle\Events\Post\Vote\VoteSubscriber
+        arguments: [@doctrine.orm.entity_manager]
+        tags:
+            - { name: kernel.event_subscriber }
+    app_main.post.vote.command.bus:
+        class: App\Domain\Command\Bus
+        arguments: [[@app_main.post.vote.command.handler.upvote]]
+    app_main.post.vote.command.handler.upvote:
+        class: App\Domain\Vote\UpvoteHandler
+        arguments: [@app_main.post.vote.writer, @app_main.clock]
+    app_main.post.vote.entity_converter:
+        class: App\Bundle\MainBundle\Infrastructure\Post\Vote\EntityConverter
+    app_main.post.vote.reader:
+        class: App\Bundle\MainBundle\Infrastructure\Post\Vote\DoctrineReader
+        arguments: [@doctrine.orm.entity_manager]
+    app_main.post.vote.writer:
+        class: App\Bundle\MainBundle\Infrastructure\Post\Vote\DoctrineWriter
+        arguments: [@doctrine.orm.entity_manager, @app_main.post.vote.entity_converter, @event_dispatcher]

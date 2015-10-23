@@ -1,0 +1,6 @@
+app_main_post_vote_upvote:
+    path:     /p/{identifier}/upvote
+    defaults: { _controller: AppMainBundle:Post/Vote:upvote }
+    methods: [GET, POST]
+    requirements:
+        identifier: \d+

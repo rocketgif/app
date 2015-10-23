@@ -25,6 +25,8 @@ class AppMainExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
         $loader->load('Post/services.yml');
+        $loader->load('Post/Vote/services.yml');
         $loader->load('Submission/services.yml');
+        $loader->load('User/services.yml');
     }
 }
