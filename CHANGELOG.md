@@ -7,9 +7,12 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 ### Fixed
-- JS not always loading from gfycat.com
 
 ### Removed
+
+## v1.1.3 - 2015-10-30
+### Fixed
+- JS not always loading from gfycat.com
 
 ## v1.1.2
 ### Added
